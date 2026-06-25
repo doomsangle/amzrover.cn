@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Bidding - 动态竞价 | 亚马逊名词详解</title>
+    <link rel="stylesheet" href="../assets/term-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dynamic Bidding</h1>
+            <div class="subtitle">动态竞价</div>
+            <div class="nav-links">
+                <a href="../07-advertising.html" class="nav-link">← 返回分类页</a>
+                <a href="../index.html" class="nav-link">返回首页</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="section">
+                <div class="section-title">名词定义</div>
+                <div class="section-content">
+                    <strong>Dynamic Bidding（动态竞价）</strong>是亚马逊广告的竞价策略之一，亚马逊根据预估的转化率自动调整竞价，以优化广告效果和花费效率。
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">动态竞价类型</div>
+                <div class="section-content">
+                    <strong>三种动态竞价策略：</strong><br><br>
+                    1. <strong>Dynamic Bidding - Down Only（动态竞价-降低）：</strong><br>
+                       当亚马逊认为广告不太可能转化时，自动降低竞价，节省广告费用。竞价不会高于卖家设置的默认竞价。<br><br>
+                    2. <strong>Dynamic Bidding - Up and Down（动态竞价-提高和降低）：</strong><br>
+                       当亚马逊认为广告可能转化时提高竞价（最高可达默认竞价的100%），认为不太可能转化时降低竞价。<br><br>
+                    3. <strong>Fixed Bidding（固定竞价）：</strong><br>
+                       卖家手动设置竞价，亚马逊不自动调整。竞价始终为卖家设置的默认竞价。<br>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">竞价策略对比</div>
+                <div class="section-content">
+                    <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+                        <tr style="background:#f8f9fa;">
+                            <th style="border:1px solid #ddd; padding:10px; text-align:left;">策略类型</th>
+                            <th style="border:1px solid #ddd; padding:10px; text-align:left;">竞价调整</th>
+                            <th style="border:1px solid #ddd; padding:10px; text-align:left;">适用场景</th>
+                            <th style="border:1px solid #ddd; padding:10px; text-align:left;">风险等级</th>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #ddd; padding:10px;">Down Only</td>
+                            <td style="border:1px solid #ddd; padding:10px;">只降不升</td>
+                            <td style="border:1px solid #ddd; padding:10px;">保守投放、控制成本</td>
+                            <td style="border:1px solid #ddd; padding:10px;">低</td>
+                        </tr>
+                        <tr style="background:#fafafa;">
+                            <td style="border:1px solid #ddd; padding:10px;">Up and Down</td>
+                            <td style="border:1px solid #ddd; padding:10px;">可升可降</td>
+                            <td style="border:1px solid #ddd; padding:10px;">追求最大化转化</td>
+                            <td style="border:1px solid #ddd; padding:10px;">中</td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #ddd; padding:10px;">Fixed</td>
+                            <td style="border:1px solid #ddd; padding:10px;">不调整</td>
+                            <td style="border:1px solid #ddd; padding:10px;">精准控制、经验丰富</td>
+                            <td style="border:1px solid #ddd; padding:10px;">低</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">案例分析</div>
+                <div class="example-content">
+                    <strong>案例：不同竞价策略对比测试</strong><br><br>
+                    某卖家对同一产品测试三种竞价策略：<br><br>
+                    <strong>测试条件：</strong><br>
+                    - 默认竞价：$1.50<br>
+                    - 每日预算：$50<br>
+                    - 关键词：相同<br><br>
+                    <strong>测试结果：</strong><br>
+                    - Down Only：点击40次，订单8单，ACoS 45%<br>
+                    - Up and Down：点击55次，订单12单，ACoS 52%<br>
+                    - Fixed：点击35次，订单7单，ACoS 48%<br><br>
+                    <strong>分析：</strong><br>
+                    Up and Down策略获得了更多订单但ACoS略高，适合追求增长的阶段；Down Only策略更保守，适合控制成本的阶段。<br><br>
+                    <strong>建议：</strong><br>
+                    根据运营阶段选择合适的竞价策略，新品期可使用Up and Down追求转化，稳定期可切换为Down Only控制成本。
+                </div>
+            </div>
+
+            <div class="policy-source">
+                <div class="policy-source-title">政策来源</div>
+                <div class="policy-source-content">
+                    亚马逊官方帮助文档：<a href="https://advertising.amazon.com/help?topicId=200336370" target="_blank">Bidding strategies</a><br>
+                    官方页面详细说明了各种竞价策略的工作原理和适用场景。
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">操作提示</div>
+                <div class="tip-content">
+                    建议在新品阶段使用"动态竞价-提高和降低"以追求更多转化，当ACoS过高时切换为"动态竞价-降低"以控制成本。有经验的卖家可以使用固定竞价进行精准控制。
+                </div>
+            </div>
+
+            <div class="related-terms">
+                <div class="related-terms-title">相关名词</div>
+                <div class="related-terms-list">
+                    <a href="cpc.html" class="related-term">CPC</a>
+                    <a href="acos.html" class="related-term">ACoS</a>
+                    <a href="sponsored-products.html" class="related-term">Sponsored Products</a>
+                    <a href="conversion-rate.html" class="related-term">Conversion Rate</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2026 亚马逊运营知识库 | Dynamic Bidding名词详解</p>
+        </div>
+    </div>
+</body>
+</html>

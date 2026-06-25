@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACoS - 广告销售成本比 | 亚马逊名词详解</title>
+    <link rel="stylesheet" href="../assets/term-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ACoS</h1>
+            <div class="subtitle">Advertising Cost of Sale - 广告销售成本比</div>
+            <div class="nav-links">
+                <a href="../07-advertising.html" class="nav-link">← 返回分类页</a>
+                <a href="../index.html" class="nav-link">返回首页</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="section">
+                <div class="section-title">名词定义</div>
+                <div class="section-content">
+                    <strong>ACoS（Advertising Cost of Sale）</strong>即广告销售成本比，是衡量亚马逊广告效率的核心指标，表示广告支出占广告带来的销售额的比例。
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">计算公式</div>
+                <div class="section-content">
+                    ACoS = (广告花费 / 广告销售额) × 100%
+                </div>
+                <div class="formula-box">
+                    <div class="formula-title">ACoS计算公式</div>
+                    <div class="formula-content">ACoS = (Ad Spend / Ad Revenue) × 100%</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">指标解读</div>
+                <div class="section-content">
+                    <strong>ACoS数值的含义：</strong><br><br>
+                    - <strong>ACoS = 30%</strong>：每花费$1广告费用，带来$3.33的广告销售额<br>
+                    - <strong>ACoS = 50%</strong>：每花费$1广告费用，带来$2的广告销售额<br>
+                    - <strong>ACoS越低越好</strong>：意味着广告效率越高，花费相同的广告费用能带来更多销售额<br><br>
+                    <strong>不同阶段的ACoS目标：</strong><br><br>
+                    - <strong>新品期：</strong>ACoS可能较高（50%-100%），因为需要大量广告投入获取曝光和评价<br>
+                    - <strong>成长期：</strong>ACoS逐渐下降（30%-50%），随着自然排名提升，广告效率提高<br>
+                    - <strong>成熟期：</strong>ACoS稳定在较低水平（15%-30%），广告主要用于维持排名和收割利润
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">ACoS变化趋势图</div>
+                <div class="section-content">
+                    <canvas id="acosChart" width="600" height="300"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var ctx = document.getElementById('acosChart').getContext('2d');
+                        var chart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周'],
+                                datasets: [{
+                                    label: 'ACoS (%)',
+                                    data: [85, 78, 72, 65, 58, 52, 45, 42],
+                                    borderColor: '#667eea',
+                                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                                    fill: true,
+                                    tension: 0.4
+                                }, {
+                                    label: '转化率 (%)',
+                                    data: [1.5, 1.8, 2.1, 2.4, 2.8, 3.2, 3.5, 3.8],
+                                    borderColor: '#28a745',
+                                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                                    fill: true,
+                                    tension: 0.4,
+                                    yAxisID: 'y1'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top'
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: '新品推广ACoS与转化率变化趋势'
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: false,
+                                        min: 20,
+                                        title: {
+                                            display: true,
+                                            text: 'ACoS (%)'
+                                        }
+                                    },
+                                    y1: {
+                                        position: 'right',
+                                        beginAtZero: false,
+                                        min: 0,
+                                        max: 5,
+                                        title: {
+                                            display: true,
+                                            text: '转化率 (%)'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                    <p style="font-size:12px; color:#888; margin-top:10px;">注：随着产品推广深入，ACoS逐渐下降，转化率逐渐提升，这是健康的广告优化趋势。</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">案例分析</div>
+                <div class="example-content">
+                    <strong>案例：ACoS计算与优化</strong><br><br>
+                    某卖家产品售价$50，广告花费$1,000，通过广告带来的销售额为$4,000。<br><br>
+                    <strong>ACoS计算：</strong><br>
+                    ACoS = ($1,000 / $4,000) × 100% = 25%<br><br>
+                    <strong>分析：</strong><br>
+                    该产品利润率为40%（成本$30），ACoS 25%意味着广告带来的利润为：<br>
+                    广告利润 = 广告销售额 × (利润率 - ACoS)<br>
+                    = $4,000 × (40% - 25%) = $600<br><br>
+                    <strong>优化方向：</strong><br>
+                    如果想提高利润，可以：<br>
+                    1. 降低CPC（优化关键词和竞价）<br>
+                    2. 提高转化率（优化Listing）<br>
+                    3. 提高产品售价<br>
+                    4. 减少无效点击（添加否定关键词）
+                </div>
+            </div>
+
+            <div class="policy-source">
+                <div class="policy-source-title">政策来源</div>
+                <div class="policy-source-content">
+                    亚马逊官方广告帮助文档：<a href="https://advertising.amazon.com/learn/en-us/measurement/ac-os" target="_blank">ACoS Definition & Calculation</a><br>
+                    亚马逊广告平台提供详细的ACoS数据和优化建议，帮助卖家提升广告效率。
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">优化技巧</div>
+                <div class="tip-content">
+                    1. <strong>关键词优化：</strong>重点投放高转化关键词，减少低转化关键词的预算<br>
+                    2. <strong>竞价策略：</strong>使用动态竞价-降低（Down Only），在转化率低时自动降低竞价<br>
+                    3. <strong>否定关键词：</strong>及时添加不相关的搜索词为否定关键词<br>
+                    4. <strong>Listing优化：</strong>提升产品详情页质量，提高转化率<br>
+                    5. <strong>预算分配：</strong>将更多预算分配给ACoS较低的广告活动
+                </div>
+            </div>
+
+            <div class="related-terms">
+                <div class="related-terms-title">相关名词</div>
+                <div class="related-terms-list">
+                    <a href="roas.html" class="related-term">ROAS</a>
+                    <a href="cpc.html" class="related-term">CPC</a>
+                    <a href="ctr.html" class="related-term">CTR</a>
+                    <a href="conversion-rate.html" class="related-term">Conversion Rate</a>
+                </div>
+            </div>
+
+            <div class="faq-link-box">
+                <div class="faq-link-title">相关FAQ</div>
+                <div class="faq-link-list">
+                    <a href="../faq/faq-ads.html" class="faq-link">📣 广告投放FAQ</a>
+                    <a href="../faq/faq-optimization.html" class="faq-link">📈 广告优化FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2026 亚马逊运营知识库 | ACoS名词详解</p>
+        </div>
+    </div>
+</body>
+</html>

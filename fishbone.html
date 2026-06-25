@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚马逊运营全链路鱼骨图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: white;
+            margin: 0;
+            padding: 10px 0 0 0;
+        }
+
+        .fishbone-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .fishbone-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 5px;
+        }
+
+        .fishbone-subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #0369a1;
+            margin-bottom: 15px;
+        }
+
+        .fishbone-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .clickable-text {
+            cursor: pointer;
+            transition: fill 0.2s ease;
+        }
+
+        .clickable-text:hover {
+            fill: #0369a1;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .fishbone-svg {
+                display: none;
+            }
+            .fishbone-mobile {
+                display: block;
+            }
+            .fishbone-mobile-item {
+                background: white;
+                border-radius: 12px;
+                padding: 15px;
+                margin-bottom: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+            .fishbone-mobile-title {
+                font-size: 15px;
+                font-weight: 700;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .fishbone-mobile-title .dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+            .fishbone-mobile-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .fishbone-mobile-list li {
+                font-size: 13px;
+                color: #555;
+                padding: 4px 0 4px 20px;
+                position: relative;
+            }
+            .fishbone-mobile-list li::before {
+                content: '•';
+                position: absolute;
+                left: 8px;
+                color: #999;
+            }
+            .fishbone-mobile-list li a {
+                color: #0369a1;
+                text-decoration: none;
+            }
+            .fishbone-mobile-list li a:hover {
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fishbone-container">
+        <div class="fishbone-title">🐟 卖家大学 · 亚马逊运营全链路鱼骨图</div>
+        <div class="fishbone-subtitle">从选品到回款 · 6大阶段9个核心步骤</div>
+
+        <svg class="fishbone-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#0369a1;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0c4a6e;stop-opacity:1" />
+                </linearGradient>
+                <style>
+                    .bone-title { font-size: 15px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+                    .sub-text { font-size: 12px; font-weight: 500; fill: #374151; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; cursor: pointer; }
+                    .sub-text:hover { fill: #0369a1; text-decoration: underline; }
+                </style>
+            </defs>
+
+            <line x1="70" y1="260" x2="920" y2="260" stroke="#0c4a6e" stroke-width="3.5" stroke-linecap="round"/>
+
+            <polygon points="920,260 885,230 885,290" fill="url(#headGrad)"/>
+
+            <path d="M 70 260 L 40 225 L 50 260 L 40 295 Z" fill="#0c4a6e"/>
+
+            <circle cx="270" cy="260" r="6" fill="white" stroke="#0c4a6e" stroke-width="2.5"/>
+            <circle cx="500" cy="260" r="6" fill="white" stroke="#0c4a6e" stroke-width="2.5"/>
+            <circle cx="730" cy="260" r="6" fill="white" stroke="#0c4a6e" stroke-width="2.5"/>
+
+            <!-- ============================================================ -->
+            <!-- 第1对大骨：开店注册(蓝色) + 产品上架(绿色) -->
+            <!-- ============================================================ -->
+            <line x1="155" y1="120" x2="270" y2="260" stroke="#0284c7" stroke-width="3" stroke-linecap="round"/>
+            <line x1="155" y1="400" x2="270" y2="260" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="155" cy="120" r="9" fill="#0284c7" stroke="white" stroke-width="3"/>
+            <circle cx="155" cy="400" r="9" fill="#16a34a" stroke="white" stroke-width="3"/>
+
+            <text x="170" y="125" class="bone-title" fill="#0369a1" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">📋 开店注册</text>
+            <text x="170" y="405" class="bone-title" fill="#15803d" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">🎨 产品上架</text>
+
+            <!-- 上方小骨1：亚马逊店铺注册，y=152，圆点x=181 -->
+            <line x1="130" y1="152" x2="181" y2="152" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="181" cy="152" r="4" fill="white" stroke="#0284c7" stroke-width="2"/>
+            <a xlink:href="index.html#step-1" target="_parent">
+                <text x="125" y="156" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">店铺注册</text>
+            </a>
+
+            <!-- 上方小骨2：注册万里汇，y=180，圆点x=204 -->
+            <line x1="130" y1="180" x2="204" y2="180" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="204" cy="180" r="4" fill="white" stroke="#0284c7" stroke-width="2"/>
+            <a xlink:href="index.html#step-2" target="_parent">
+                <text x="125" y="184" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">绑定收款</text>
+            </a>
+
+            <!-- 上方小骨3：选品调研，y=208，圆点x=227 -->
+            <line x1="130" y1="208" x2="227" y2="208" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="227" cy="208" r="4" fill="white" stroke="#0284c7" stroke-width="2"/>
+            <text x="125" y="212" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">选品调研</text>
+
+            <!-- 下方小骨1：上传Listing产品，y=368，圆点x=181 -->
+            <line x1="130" y1="368" x2="181" y2="368" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="181" cy="368" r="4" fill="white" stroke="#16a34a" stroke-width="2"/>
+            <a xlink:href="index.html#step-3" target="_parent">
+                <text x="125" y="372" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">上传Listing</text>
+            </a>
+
+            <!-- 下方小骨2：注册绑定品牌，y=340，圆点x=204 -->
+            <line x1="130" y1="340" x2="204" y2="340" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="204" cy="340" r="4" fill="white" stroke="#16a34a" stroke-width="2"/>
+            <a xlink:href="index.html#step-4" target="_parent">
+                <text x="125" y="344" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">品牌绑定</text>
+            </a>
+
+            <!-- 下方小骨3：A+页面，y=312，圆点x=227 -->
+            <line x1="130" y1="312" x2="227" y2="312" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="227" cy="312" r="4" fill="white" stroke="#16a34a" stroke-width="2"/>
+            <text x="125" y="316" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">A+页面</text>
+
+            <!-- ============================================================ -->
+            <!-- 第2对大骨：物流发货(橙色) + 推广运营(紫色) -->
+            <!-- ============================================================ -->
+            <line x1="385" y1="120" x2="500" y2="260" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="385" y1="400" x2="500" y2="260" stroke="#9333ea" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="385" cy="120" r="9" fill="#ea580c" stroke="white" stroke-width="3"/>
+            <circle cx="385" cy="400" r="9" fill="#9333ea" stroke="white" stroke-width="3"/>
+
+            <text x="400" y="125" class="bone-title" fill="#c2410c" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">📦 物流发货</text>
+            <text x="400" y="405" class="bone-title" fill="#7e22ce" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">📣 推广运营</text>
+
+            <!-- 上方小骨1：FBA发货亚马逊仓库，y=162，圆点x=420 -->
+            <line x1="360" y1="162" x2="420" y2="162" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="420" cy="162" r="4" fill="white" stroke="#ea580c" stroke-width="2"/>
+            <a xlink:href="index.html#step-5" target="_parent">
+                <text x="355" y="166" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">FBA发货</text>
+            </a>
+
+            <!-- 上方小骨2：亚马逊仓库物流，y=198，圆点x=449 -->
+            <line x1="360" y1="198" x2="449" y2="198" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="449" cy="198" r="4" fill="white" stroke="#ea580c" stroke-width="2"/>
+            <a xlink:href="index.html#step-6" target="_parent">
+                <text x="355" y="202" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">仓库物流</text>
+            </a>
+
+            <!-- 下方小骨1：亚马逊广告，y=358，圆点x=420 -->
+            <line x1="360" y1="358" x2="420" y2="358" stroke="#9333ea" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="420" cy="358" r="4" fill="white" stroke="#9333ea" stroke-width="2"/>
+            <a xlink:href="index.html#step-7" target="_parent">
+                <text x="355" y="362" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">亚马逊广告</text>
+            </a>
+
+            <!-- 下方小骨2：出单发货，y=322，圆点x=449 -->
+            <line x1="360" y1="322" x2="449" y2="322" stroke="#9333ea" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="449" cy="322" r="4" fill="white" stroke="#9333ea" stroke-width="2"/>
+            <text x="355" y="326" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">出单发货</text>
+
+            <!-- ============================================================ -->
+            <!-- 第3对大骨：售后回款(红色) + 绩效风控(青色) -->
+            <!-- ============================================================ -->
+            <line x1="615" y1="120" x2="730" y2="260" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+            <line x1="615" y1="400" x2="730" y2="260" stroke="#0d9488" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="615" cy="120" r="9" fill="#dc2626" stroke="white" stroke-width="3"/>
+            <circle cx="615" cy="400" r="9" fill="#0d9488" stroke="white" stroke-width="3"/>
+
+            <text x="630" y="125" class="bone-title" fill="#b91c1c" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">💰 售后回款</text>
+            <text x="630" y="405" class="bone-title" fill="#0f766e" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">📊 绩效风控</text>
+
+            <!-- 上方小骨1：亚马逊系统售后，y=166，圆点x=653 -->
+            <line x1="590" y1="166" x2="653" y2="166" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="653" cy="166" r="4" fill="white" stroke="#dc2626" stroke-width="2"/>
+            <a xlink:href="index.html#step-8" target="_parent">
+                <text x="585" y="170" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">系统售后</text>
+            </a>
+
+            <!-- 上方小骨2：亚马逊账号回款，y=203，圆点x=683 -->
+            <line x1="590" y1="203" x2="683" y2="203" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="683" cy="203" r="4" fill="white" stroke="#dc2626" stroke-width="2"/>
+            <a xlink:href="index.html#step-9" target="_parent">
+                <text x="585" y="207" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">账号回款</text>
+            </a>
+
+            <!-- 下方小骨1：账号绩效，y=354，圆点x=653 -->
+            <line x1="590" y1="354" x2="653" y2="354" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="653" cy="354" r="4" fill="white" stroke="#0d9488" stroke-width="2"/>
+            <text x="585" y="358" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">账号绩效</text>
+
+            <!-- 下方小骨2：风控申诉，y=317，圆点x=683 -->
+            <line x1="590" y1="317" x2="683" y2="317" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="683" cy="317" r="4" fill="white" stroke="#0d9488" stroke-width="2"/>
+            <text x="585" y="321" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">风控申诉</text>
+
+            <!-- 下方小骨3：合规经营，y=284，圆点x=710 -->
+            <line x1="590" y1="284" x2="710" y2="284" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="710" cy="284" r="4" fill="white" stroke="#0d9488" stroke-width="2"/>
+            <text x="585" y="288" text-anchor="end" class="sub-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">合规经营</text>
+        </svg>
+
+        <div class="fishbone-mobile">
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#0284c7;"></span>📋 开店注册</div>
+                <ul class="fishbone-mobile-list">
+                    <li><a href="index.html#step-1">店铺注册</a></li>
+                    <li><a href="index.html#step-2">绑定收款</a></li>
+                    <li>选品调研</li>
+                </ul>
+            </div>
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#16a34a;"></span>🎨 产品上架</div>
+                <ul class="fishbone-mobile-list">
+                    <li><a href="index.html#step-3">上传Listing</a></li>
+                    <li><a href="index.html#step-4">品牌绑定</a></li>
+                    <li>A+页面</li>
+                </ul>
+            </div>
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#ea580c;"></span>📦 物流发货</div>
+                <ul class="fishbone-mobile-list">
+                    <li><a href="index.html#step-5">FBA发货</a></li>
+                    <li><a href="index.html#step-6">仓库物流</a></li>
+                </ul>
+            </div>
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#9333ea;"></span>📣 推广运营</div>
+                <ul class="fishbone-mobile-list">
+                    <li><a href="index.html#step-7">亚马逊广告</a></li>
+                    <li>出单发货</li>
+                </ul>
+            </div>
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#dc2626;"></span>💰 售后回款</div>
+                <ul class="fishbone-mobile-list">
+                    <li><a href="index.html#step-8">系统售后</a></li>
+                    <li><a href="index.html#step-9">账号回款</a></li>
+                </ul>
+            </div>
+            <div class="fishbone-mobile-item">
+                <div class="fishbone-mobile-title"><span class="dot" style="background:#0d9488;"></span>📊 绩效风控</div>
+                <ul class="fishbone-mobile-list">
+                    <li>账号绩效</li>
+                    <li>风控申诉</li>
+                    <li>合规经营</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚马逊认证与合规名词解释</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #FF9900;
+        }
+
+        .term-card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .term-card:hover {
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.1);
+            border-color: #FF9900;
+        }
+
+        .term-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .term-name span {
+            font-size: 12px;
+            color: #FF9900;
+            background: #FFF3E0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: normal;
+        }
+
+        .term-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #FF6B00;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .term-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>亚马逊认证与合规名词解释</h1>
+            <p>涵盖店铺注册、品牌备案、税务认证、产品合规等核心概念</p>
+            <a href="index.html" class="nav-link">← 返回首页</a>
+        </div>
+        <div class="content">
+            <div class="category">
+                <div class="category-title">店铺注册相关</div>
+                <div class="term-card">
+                    <div class="term-name">Amazon Seller Central<span>卖家后台</span></div>
+                    <div class="term-desc">亚马逊卖家管理后台，卖家在此进行产品上架、订单管理、广告投放、查看销售数据等所有店铺运营操作。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Professional Seller<span>专业卖家</span></div>
+                    <div class="term-desc">亚马逊卖家账户类型之一，需支付固定月费（如美国站$39.99/月），可创建无限Listing，享受更多高级功能和销售工具。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Individual Seller<span>个人卖家</span></div>
+                    <div class="term-desc">亚马逊卖家账户类型之一，无需月费，按件收费（每件$0.99），功能受限，适合新手或少量商品销售。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">KYC认证<span>身份验证</span></div>
+                    <div class="term-desc">Know Your Customer的缩写，亚马逊对卖家进行的身份和资质审核，需提供公司营业执照、法人身份证、银行账户等信息。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">GST/HST/PST<span>加拿大税务</span></div>
+                    <div class="term-desc">加拿大的销售税体系：GST（商品服务税）、HST（ Harmonized Sales Tax，统一销售税）、PST（省销售税）。</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">品牌备案相关</div>
+                <div class="term-card">
+                    <div class="term-name">Brand Registry<span>品牌备案</span></div>
+                    <div class="term-desc">亚马逊品牌注册计划，注册后卖家可获得品牌保护工具、A+页面权限、品牌分析等功能，防止跟卖和侵权。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Trademark<span>商标</span></div>
+                    <div class="term-desc">品牌备案的前提，需在目标市场国家/地区注册商标（如美国USPTO、欧盟EUIPO），商标类型包括文字标、图形标等。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">A+ Content<span>A+页面</span></div>
+                    <div class="term-desc">品牌备案卖家专属的高级详情页功能，支持添加图文并茂的产品描述、对比表、品牌故事等，提升转化率。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Amazon Stores<span>亚马逊旗舰店</span></div>
+                    <div class="term-desc">品牌备案卖家可创建的品牌专属页面，类似独立站，展示品牌故事、产品线，提升品牌形象和顾客粘性。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Transparency Program<span>透明计划</span></div>
+                    <div class="term-desc">亚马逊品牌保护计划，通过在产品上粘贴唯一代码标签，打击假货，确保消费者购买正品。</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">产品合规认证</div>
+                <div class="term-card">
+                    <div class="term-name">FCC认证<span>美国</span></div>
+                    <div class="term-desc">美国联邦通信委员会（FCC）的电磁兼容认证，适用于电子类产品，确保产品不会对无线电通信造成干扰。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">FDA认证<span>美国</span></div>
+                    <div class="term-desc">美国食品药品监督管理局（FDA）的认证，适用于食品、药品、医疗器械、化妆品等产品，确保产品安全合规。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">CE认证<span>欧盟</span></div>
+                    <div class="term-desc">欧盟的产品安全认证标志，表明产品符合欧盟相关指令要求，是进入欧盟市场的必要条件。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">ROHS认证<span>欧盟</span></div>
+                    <div class="term-desc">欧盟关于限制在电子电气设备中使用某些有害物质的指令，限制铅、汞、镉等有害物质的使用。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">CPSIA认证<span>美国儿童</span></div>
+                    <div class="term-desc">美国消费品安全改进法案，针对儿童产品的安全标准，包括铅含量限制、邻苯二甲酸酯限制等。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Prop 65<span>加州65号提案</span></div>
+                    <div class="term-desc">加州关于化学品暴露警示的法规，要求企业对可能含有致癌或生殖毒性化学物质的产品进行警告标识。</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">税务合规</div>
+                <div class="term-card">
+                    <div class="term-name">VAT<span>增值税</span></div>
+                    <div class="term-desc">Value Added Tax，欧盟国家的增值税，卖家需在销售产生的国家注册VAT号并按时申报缴纳。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">IOSS<span>欧盟进口</span></div>
+                    <div class="term-desc">Import One Stop Shop，欧盟一站式进口服务，允许非欧盟卖家一次性完成所有欧盟国家的VAT申报和缴纳。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">OSS<span>欧盟远程</span></div>
+                    <div class="term-desc">One Stop Shop，欧盟一站式服务，适用于欧盟境内卖家在多个国家远程销售的VAT申报。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">EPR<span>生产者责任</span></div>
+                    <div class="term-desc">Extended Producer Responsibility，欧盟生产者责任延伸制度，要求企业对产品整个生命周期负责，包括包装回收、电子产品回收等。</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">支付与收款</div>
+                <div class="term-card">
+                    <div class="term-name">WorldFirst<span>万里汇</span></div>
+                    <div class="term-desc">亚马逊官方推荐的第三方收款工具，支持多币种收款，费率低，到账快，可直接绑定国内银行账户提现。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Payoneer<span>派安盈</span></div>
+                    <div class="term-desc">国际支付平台，支持多平台收款，提供虚拟银行账户，方便卖家接收亚马逊等平台的货款。</div>
+                </div>
+                <div class="term-name">P卡<span>Payoneer简称</span></div>
+                <div class="term-desc">Payoneer卡的简称，卖家常用的收款工具之一，支持全球多币种收款和提现。</div>
+                <div class="term-card">
+                    <div class="term-name">PingPong<span>乒乓收款</span></div>
+                    <div class="term-desc">中国领先的跨境收款平台，支持亚马逊、eBay等多平台收款，费率透明，资金安全有保障。</div>
+                </div>
+                <div class="term-card">
+                    <div class="term-name">Transferwise<span>Wise</span></div>
+                    <div class="term-desc">现更名为Wise，提供低成本的国际汇款服务，支持多币种账户，适合跨境资金转账。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

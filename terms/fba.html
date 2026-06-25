@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBA - 亚马逊物流 | 亚马逊名词详解</title>
+    <link rel="stylesheet" href="../assets/term-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FBA</h1>
+            <div class="subtitle">亚马逊物流</div>
+            <div class="nav-links">
+                <a href="../06-logistics.html" class="nav-link">← 返回分类页</a>
+                <a href="../index.html" class="nav-link">返回首页</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="section">
+                <div class="section-title">名词定义</div>
+                <div class="section-content">
+                    <strong>FBA（Fulfillment by Amazon）</strong>是亚马逊提供的物流服务，卖家将库存发送到亚马逊仓库，由亚马逊负责仓储、打包、配送、客服和退货处理。
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">FBA优势</div>
+                <div class="section-content">
+                    <strong>FBA的主要优势：</strong><br><br>
+                    1. <strong>Prime标识：</strong>产品获得Prime标识，提高曝光和转化率<br>
+                    2. <strong>快速配送：</strong>支持2日达、当日达等快速配送服务<br>
+                    3. <strong>提高Buy Box几率：</strong>FBA卖家更容易获得Buy Box<br>
+                    4. <strong>节省人力：</strong>亚马逊处理打包、配送、客服和退货<br>
+                    5. <strong>全球配送：</strong>支持多站点发货，覆盖全球市场<br>
+                    6. <strong>信任度高：</strong>买家更信任亚马逊配送的产品<br>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">FBA费用结构</div>
+                <div class="section-content">
+                    <strong>FBA主要费用：</strong><br><br>
+                    1. <strong>仓储费：</strong><br>
+                       - 月度仓储费：按立方英尺计算，标准尺寸$0.87-$2.40/立方英尺，大件$0.53-$1.20/立方英尺<br>
+                       - 长期仓储费：超过365天的库存，每立方英尺$6.90/月<br><br>
+                    2. <strong>配送费：</strong>按产品尺寸和重量计算，标准尺寸$2.50-$4.75/件<br><br>
+                    3. <strong>订单处理费：</strong>非媒介类产品$1.00/件<br><br>
+                    4. <strong>移除费：</strong>从亚马逊仓库移除库存的费用<br><br>
+                    5. <strong>退货处理费：</strong>处理买家退货的费用<br>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">FBA费用对比图</div>
+                <div class="section-content">
+                    <canvas id="fbaChart" width="600" height="300"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var ctx = document.getElementById('fbaChart').getContext('2d');
+                        var chart = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: ['配送费', '仓储费', '订单处理费', '退货处理费', '其他费用'],
+                                datasets: [{
+                                    label: 'FBA费用构成',
+                                    data: [55, 20, 12, 8, 5],
+                                    backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe'],
+                                    borderWidth: 2,
+                                    borderColor: '#fff'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'bottom'
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'FBA费用构成占比（以标准尺寸产品为例）'
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                    <canvas id="fbaCompareChart" width="600" height="250" style="margin-top:20px;"></canvas>
+                    <script>
+                        var ctx2 = document.getElementById('fbaCompareChart').getContext('2d');
+                        var chart2 = new Chart(ctx2, {
+                            type: 'bar',
+                            data: {
+                                labels: ['FBA', '自发货(空运)', '自发货(海运)'],
+                                datasets: [{
+                                    label: '单件配送费用 ($)',
+                                    data: [4.22, 10.00, 6.00],
+                                    backgroundColor: ['#667eea', '#f5576c', '#4facfe'],
+                                    borderRadius: 8
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'FBA vs 自发货配送费用对比'
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        title: {
+                                            display: true,
+                                            text: '单件费用 ($)'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">案例分析</div>
+                <div class="example-content">
+                    <strong>案例：FBA vs 自发货对比</strong><br><br>
+                    某卖家销售一款蓝牙音箱，售价$49.99，重量1.5磅，标准尺寸：<br><br>
+                    <strong>FBA费用：</strong><br>
+                    - 配送费：$3.22<br>
+                    - 订单处理费：$1.00<br>
+                    - 月度仓储费：约$0.50/件/月<br>
+                    - 总费用（按月销100件）：$4.72/件<br><br>
+                    <strong>自发货费用：</strong><br>
+                    - 国际运费：$8.00-$12.00/件<br>
+                    - 包装材料：$1.00/件<br>
+                    - 人工成本：$2.00/件<br>
+                    - 总费用：$11.00-$15.00/件<br><br>
+                    <strong>结论：</strong><br>
+                    FBA在配送费用上有明显优势，且能提供更好的买家体验和更高的转化率。
+                </div>
+            </div>
+
+            <div class="policy-source">
+                <div class="policy-source-title">政策来源</div>
+                <div class="policy-source-content">
+                    亚马逊官方帮助文档：<a href="https://sellercentral.amazon.com/gp/help/200339920" target="_blank">FBA fees</a><br>
+                    官方页面详细说明了FBA的费用结构和计算方式。
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">操作提示</div>
+                <div class="tip-content">
+                    建议使用亚马逊FBA计算器计算产品的FBA费用，确保产品有足够的利润空间。同时注意库存管理，避免长期仓储费过高。
+                </div>
+            </div>
+
+            <div class="related-terms">
+                <div class="related-terms-title">相关名词</div>
+                <div class="related-terms-list">
+                    <a href="fbm.html" class="related-term">FBM</a>
+                    <a href="head-haul.html" class="related-term">头程</a>
+                    <a href="acos.html" class="related-term">ACoS</a>
+                    <a href="conversion-rate.html" class="related-term">Conversion Rate</a>
+                </div>
+            </div>
+
+            <div class="faq-link-box">
+                <div class="faq-link-title">相关FAQ</div>
+                <div class="faq-link-list">
+                    <a href="../faq/faq-fba.html" class="faq-link">📦 FBA物流FAQ</a>
+                    <a href="../faq/faq-shipping.html" class="faq-link">🚢 国际物流FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2026 亚马逊运营知识库 | FBA名词详解</p>
+        </div>
+    </div>
+</body>
+</html>
