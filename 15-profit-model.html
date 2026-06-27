@@ -168,24 +168,215 @@
 
             <div class="category">
                 <div class="category-title">费用计算</div>
-                <div class="term-card">
+                
+                <!-- 佣金计算器 -->
+                <div class="term-card" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); border: 2px solid #FF9900;">
                     <div class="term-name">Referral Fee Calculator<span>佣金计算器</span></div>
-                    <div class="term-desc">计算亚马逊收取的销售佣金的工具。</div>
+                    <div class="term-desc">计算亚马逊收取的销售佣金的工具。输入产品售价和类目，自动计算佣金金额。</div>
+                    <div style="margin-top: 15px;">
+                        <strong>免费工具推荐：</strong><br>
+                        <a href="https://sellercentral.amazon.com/hz/fba/revenuecalculator/index?ref=xx_revcaldr_dnav_xx" target="_blank" style="color: #FF6B00; font-weight: 600; text-decoration: none;">
+                            🚀 亚马逊官方收入计算器
+                        </a>
+                        <span style="font-size: 12px; color: #888;">（最权威，包含佣金、FBA费用、净利润）</span>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
+                        <strong>快速计算：</strong><br>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <input type="number" id="referralPrice" placeholder="产品售价 ($)" style="flex: 1; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px;" oninput="calculateReferral()">
+                            <select id="referralCategory" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px;" onchange="calculateReferral()">
+                                <option value="15">大多数类目 (15%)</option>
+                                <option value="17">服装/鞋靴 (17%)</option>
+                                <option value="8">书籍/音乐/视频 (8%)</option>
+                                <option value="6">个人电脑 (6%)</option>
+                                <option value="20">珠宝/手表 (20%)</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            <span style="color: #FF6B00; font-weight: 600;">佣金 = $</span>
+                            <span id="referralResult" style="font-weight: 700; font-size: 18px;">0.00</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="term-card">
+                
+                <!-- FBA费用计算器 -->
+                <div class="term-card" style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); border: 2px solid #2196F3;">
                     <div class="term-name">FBA Fee Calculator<span>FBA费用计算器</span></div>
-                    <div class="term-desc">计算FBA物流费用的工具，考虑产品尺寸和重量。</div>
+                    <div class="term-desc">计算FBA物流费用的工具，考虑产品尺寸和重量，包括配送费、仓储费等。</div>
+                    <div style="margin-top: 15px;">
+                        <strong>免费工具推荐：</strong><br>
+                        <a href="https://sellercentral.amazon.com/hz/fba/revenuecalculator/index?ref=xx_revcaldr_dnav_xx" target="_blank" style="color: #2196F3; font-weight: 600; text-decoration: none;">
+                            🚀 亚马逊官方FBA计算器
+                        </a><br>
+                        <a href="https://onlinecalculator.ae/business/fba-fee-calculator/" target="_blank" style="color: #2196F3; font-weight: 600; text-decoration: none; margin-top: 5px; display: block;">
+                            📦 onlinecalculator.ae FBA计算器
+                        </a>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
+                        <strong>FBA费用估算：</strong><br>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                            <div>
+                                <label style="font-size: 12px; color: #666;">产品重量 (磅)</label>
+                                <input type="number" id="fbaWeight" placeholder="1.5" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" oninput="calculateFBA()">
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: #666;">产品尺寸</label>
+                                <select id="fbaSize" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" onchange="calculateFBA()">
+                                    <option value="standard">标准尺寸</option>
+                                    <option value="oversize">大件商品</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            <span style="color: #2196F3; font-weight: 600;">预估配送费 ≈ $</span>
+                            <span id="fbaResult" style="font-weight: 700; font-size: 18px;">0.00</span>
+                            <span style="font-size: 12px; color: #888; margin-left: 5px;">(仅供参考，以亚马逊实际为准)</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="term-card">
+                
+                <!-- 利润计算器 -->
+                <div class="term-card" style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border: 2px solid #4CAF50;">
                     <div class="term-name">Profit Calculator<span>利润计算器</span></div>
-                    <div class="term-desc">综合计算产品利润的工具，考虑所有成本因素。</div>
+                    <div class="term-desc">综合计算产品利润的工具，考虑所有成本因素，包括采购、运输、广告、退货等。</div>
+                    <div style="margin-top: 15px;">
+                        <strong>免费工具推荐：</strong><br>
+                        <a href="23-cost-calculator.html" style="color: #4CAF50; font-weight: 600; text-decoration: none;">
+                            🎯 本站利润计算器（完整版）
+                        </a>
+                        <span style="font-size: 12px; color: #888;">（包含完整成本计算、示例数据、优化建议）</span><br>
+                        <a href="https://chrome.google.com/webstore/detail/sellersprite-profit-calc/mfghmhmbhfgdnphokfbcbbdpfhfblnhg" target="_blank" style="color: #4CAF50; font-weight: 600; text-decoration: none; margin-top: 5px; display: block;">
+                            🧩 SellerSprite Chrome扩展
+                        </a>
+                        <span style="font-size: 12px; color: #888;">（直接在亚马逊页面显示利润）</span>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
+                        <strong>快速利润估算：</strong><br>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                            <div>
+                                <label style="font-size: 12px; color: #666;">售价 ($)</label>
+                                <input type="number" id="profitPrice" placeholder="29.99" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" oninput="calculateProfitQuick()">
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: #666;">成本 (¥)</label>
+                                <input type="number" id="profitCost" placeholder="80" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" oninput="calculateProfitQuick()">
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            <span style="color: #4CAF50; font-weight: 600;">预估利润 ≈ ¥</span>
+                            <span id="profitResult" style="font-weight: 700; font-size: 18px;">0.00</span>
+                            <span style="color: #4CAF50; font-weight: 600; margin-left: 10px;">利润率 ≈ </span>
+                            <span id="marginResult" style="font-weight: 700; font-size: 18px;">0%</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="term-card">
-                    <div class="term-name">Cost of Goods Sold<span>COGS</span></div>
-                    <div class="term-desc">商品销售成本，即产品成本加上运输成本。</div>
+                
+                <!-- COGS计算器 -->
+                <div class="term-card" style="background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%); border: 2px solid #9C27B0;">
+                    <div class="term-name">Cost of Goods Sold<span>COGS - 商品销售成本</span></div>
+                    <div class="term-desc">商品销售成本，即产品成本加上运输成本，是计算毛利润的基础。</div>
+                    <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
+                        <strong>COGS计算：</strong><br>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                            <div>
+                                <label style="font-size: 12px; color: #666;">采购成本 (¥)</label>
+                                <input type="number" id="cogsPurchase" placeholder="50" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" oninput="calculateCOGS()">
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: #666;">头程运费 (¥)</label>
+                                <input type="number" id="cogsShipping" placeholder="16" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; margin-top: 3px;" oninput="calculateCOGS()">
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            <span style="color: #9C27B0; font-weight: 600;">COGS = ¥</span>
+                            <span id="cogsResult" style="font-weight: 700; font-size: 18px;">0.00</span>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 12px; color: #888; background: #F3E5F5; padding: 10px; border-radius: 6px;">
+                            <strong>计算公式：</strong><br>
+                            COGS = 采购成本 + 头程运费 + 关税 + 包装材料费用
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 其他实用工具 -->
+                <div class="term-card" style="background: #f9fafb;">
+                    <div class="term-name">其他实用工具<span>Additional Tools</span></div>
+                    <div style="margin-top: 15px;">
+                        <strong>免费工具汇总：</strong><br><br>
+                        <a href="https://sellercentral.amazon.com/hz/fba/revenuecalculator/index?ref=xx_revcaldr_dnav_xx" target="_blank" style="color: #FF6B00; font-weight: 600; text-decoration: none; display: block; margin-bottom: 8px;">
+                            🚀 亚马逊官方收入计算器
+                        </a>
+                        <a href="https://chrome.google.com/webstore/detail/sellersprite-profit-calc/mfghmhmbhfgdnphokfbcbbdpfhfblnhg" target="_blank" style="color: #4CAF50; font-weight: 600; text-decoration: none; display: block; margin-bottom: 8px;">
+                            🧩 SellerSprite 利润计算器（Chrome扩展）
+                        </a>
+                        <a href="https://www.helium10.com/calculator/" target="_blank" style="color: #2196F3; font-weight: 600; text-decoration: none; display: block; margin-bottom: 8px;">
+                            📊 Helium 10 Profit Calculator
+                        </a>
+                        <a href="https://www.junglescout.com/amazon-fba-revenue-calculator/" target="_blank" style="color: #9C27B0; font-weight: 600; text-decoration: none; display: block; margin-bottom: 8px;">
+                            🌴 Jungle Scout FBA Calculator
+                        </a>
+                        <a href="https://onlinecalculator.ae/business/fba-fee-calculator/" target="_blank" style="color: #FF9900; font-weight: 600; text-decoration: none; display: block;">
+                            📦 FBA Fee Calculator (onlinecalculator.ae)
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        function calculateReferral() {
+            const price = parseFloat(document.getElementById('referralPrice').value) || 0;
+            const rate = parseFloat(document.getElementById('referralCategory').value) || 15;
+            const result = price * (rate / 100);
+            document.getElementById('referralResult').textContent = result.toFixed(2);
+        }
+        
+        function calculateFBA() {
+            const weight = parseFloat(document.getElementById('fbaWeight').value) || 0;
+            const size = document.getElementById('fbaSize').value;
+            
+            let fee = 0;
+            if (size === 'standard') {
+                if (weight <= 1) fee = 3.22;
+                else if (weight <= 2) fee = 3.77;
+                else if (weight <= 3) fee = 4.87;
+                else if (weight <= 4) fee = 5.37;
+                else fee = 5.37 + (weight - 4) * 0.50;
+            } else {
+                if (weight <= 10) fee = 8.13;
+                else if (weight <= 20) fee = 10.66;
+                else if (weight <= 30) fee = 13.19;
+                else if (weight <= 40) fee = 15.72;
+                else fee = 15.72 + (weight - 40) * 0.50;
+            }
+            
+            document.getElementById('fbaResult').textContent = fee.toFixed(2);
+        }
+        
+        function calculateProfitQuick() {
+            const price = parseFloat(document.getElementById('profitPrice').value) || 0;
+            const cost = parseFloat(document.getElementById('profitCost').value) || 0;
+            const exchangeRate = 7.2;
+            
+            const revenue = price * exchangeRate;
+            const platformFee = revenue * 0.15;
+            const fbaFee = 4.00 * exchangeRate;
+            const adCost = revenue * 0.10;
+            
+            const profit = revenue - cost - platformFee - fbaFee - adCost;
+            const margin = revenue > 0 ? (profit / revenue * 100) : 0;
+            
+            document.getElementById('profitResult').textContent = profit.toFixed(2);
+            document.getElementById('marginResult').textContent = margin.toFixed(1) + '%';
+        }
+        
+        function calculateCOGS() {
+            const purchase = parseFloat(document.getElementById('cogsPurchase').value) || 0;
+            const shipping = parseFloat(document.getElementById('cogsShipping').value) || 0;
+            const result = purchase + shipping;
+            document.getElementById('cogsResult').textContent = result.toFixed(2);
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚马逊产品成本利润计算器 - amzrover.cn亚马逊卖家知识库</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="亚马逊产品成本利润计算器 - amzrover.cn">
+    <meta name="description" content="专业的亚马逊产品成本利润计算工具，包含采购成本、运输头程尾程、销售金额、广告费用、退货率等完整成本计算，实时计算利润、利率、ROI，附带示例数据和操作说明。">
+    <meta name="keywords" content="亚马逊成本计算,亚马逊利润计算器,亚马逊ROI计算,FBA成本计算,亚马逊定价工具,产品利润分析,amzrover">
+    <meta name="author" content="amzrover.cn">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.amzrover.cn/23-cost-calculator.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.amzrover.cn/23-cost-calculator.html">
+    <meta property="og:title" content="亚马逊产品成本利润计算器 - amzrover.cn">
+    <meta property="og:description" content="专业的亚马逊产品成本利润计算工具，实时计算利润、利率、ROI。">
+    <meta property="og:site_name" content="亚马逊卖家知识库 - amzrover.cn">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.amzrover.cn/23-cost-calculator.html">
+    <meta name="twitter:title" content="亚马逊产品成本利润计算器 - amzrover.cn">
+    <meta name="twitter:description" content="专业的亚马逊产品成本利润计算工具，实时计算利润、利率、ROI。">
+    
+    <!-- GEO Meta Tags -->
+    <meta name="geo.region" content="CN-BJ">
+    <meta name="geo.placename" content="Beijing, China">
+    <meta name="language" content="zh-CN">
+    
+    <!-- hreflang Links -->
+    <link rel="alternate" hreflang="zh-CN" href="https://www.amzrover.cn/23-cost-calculator.html">
+    <link rel="alternate" hreflang="en" href="https://www.amzrover.cn/en/23-cost-calculator.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.amzrover.cn/23-cost-calculator.html">
+    
+    <!-- Structured Data - WebPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "亚马逊产品成本利润计算器",
+        "description": "专业的亚马逊产品成本利润计算工具，包含采购成本、运输头程尾程、销售金额、广告费用、退货率等完整成本计算",
+        "url": "https://www.amzrover.cn/23-cost-calculator.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "amzrover.cn",
+            "url": "https://www.amzrover.cn"
+        },
+        "datePublished": "2026-06-27",
+        "dateModified": "2026-06-27",
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "亚马逊成本利润计算器",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web Browser",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* 语言切换器 */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        .lang-switcher a {
+            display: inline-block;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .lang-switcher .lang-active {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+        }
+        .lang-switcher .lang-inactive {
+            background: white;
+            color: #333;
+        }
+        .lang-switcher .lang-inactive:hover {
+            background: #f0f0f0;
+        }
+        
+        /* 计算器样式 */
+        .calculator-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .calculator-header {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .calculator-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .calculator-body {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 0;
+            min-height: 800px;
+        }
+        
+        .input-section {
+            padding: 30px;
+            background: #f9fafb;
+            overflow-y: auto;
+            max-height: 900px;
+        }
+        
+        .example-section {
+            padding: 30px;
+            background: white;
+            border-left: 3px solid #FF9900;
+            overflow-y: auto;
+            max-height: 900px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FF9900;
+        }
+        
+        .input-group {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .input-group-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #FF6B00;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .input-group-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #FF9900;
+            border-radius: 50%;
+        }
+        
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .input-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .input-item label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .input-item input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .input-item input:focus {
+            outline: none;
+            border-color: #FF9900;
+            box-shadow: 0 0 0 3px rgba(255,153,0,0.1);
+        }
+        
+        .input-item input::placeholder {
+            color: #aaa;
+        }
+        
+        .input-hint {
+            font-size: 12px;
+            color: #888;
+            margin-top: 3px;
+        }
+        
+        /* 结果区域 */
+        .result-section {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .result-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .result-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .result-value.positive {
+            color: #4CAF50;
+        }
+        
+        .result-value.negative {
+            color: #F44336;
+        }
+        
+        /* 示例区域 */
+        .example-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .example-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FF6B00;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .example-data {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .example-highlight {
+            background: #FFF3E0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #FF6B00;
+        }
+        
+        .tip-box {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .tip-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2196F3;
+            margin-bottom: 8px;
+        }
+        
+        .tip-box-content {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9900;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .warning-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FF6B00;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box-content {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* 按钮 */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,153,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #FF6B00;
+            border: 2px solid #FF6B00;
+        }
+        
+        .btn-secondary:hover {
+            background: #FFF3E0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .calculator-body {
+                grid-template-columns: 1fr;
+            }
+            .example-section {
+                border-left: none;
+                border-top: 3px solid #FF9900;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+            .calculator-header h1 {
+                font-size: 24px;
+            }
+            .input-section, .example-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="lang-switcher">
+        <a href="23-cost-calculator.html" class="lang-active" title="中文">中文</a>
+        <a href="en/23-cost-calculator.html" class="lang-inactive" title="English">EN</a>
+    </div>
+    
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <h1>💰 亚马逊产品成本利润计算器</h1>
+            <p>专业的亚马逊产品成本计算工具 | 实时计算利润、利率、ROI</p>
+            <a href="index.html" class="nav-link">← 返回首页</a>
+        </div>
+        
+        <div class="calculator-body">
+            <!-- 输入区域 -->
+            <div class="input-section">
+                <div class="section-title">📝 成本数据输入</div>
+                
+                <!-- 产品基本信息 -->
+                <div class="input-group">
+                    <div class="input-group-title">产品基本信息</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>产品名称 / ASIN</label>
+                            <input type="text" id="productName" placeholder="例如：蓝牙耳机 B08XYZ123">
+                            <div class="input-hint">用于标识计算的产品</div>
+                        </div>
+                        <div class="input-item">
+                            <label>计算单位</label>
+                            <select id="unitType" style="padding: 10px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                <option value="perUnit">按单件计算</option>
+                                <option value="perBatch">按批次计算</option>
+                                <option value="perMonth">按月度计算</option>
+                            </select>
+                            <div class="input-hint">选择计算的时间/数量单位</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 采购成本 -->
+                <div class="input-group">
+                    <div class="input-group-title">📦 采购成本</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>单位采购成本 (¥)</label>
+                            <input type="number" id="purchaseCost" placeholder="50.00" step="0.01">
+                            <div class="input-hint">工厂采购价格（人民币）</div>
+                        </div>
+                        <div class="input-item">
+                            <label>采购数量 (件)</label>
+                            <input type="number" id="purchaseQuantity" placeholder="500">
+                            <div class="input-hint">本次采购的产品数量</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>采购运费 (¥)</label>
+                            <input type="number" id="purchaseShipping" placeholder="2000.00" step="0.01">
+                            <div class="input-hint">从工厂到仓库的国内运费</div>
+                        </div>
+                        <div class="input-item">
+                            <label>采购关税 (¥)</label>
+                            <input type="number" id="purchaseTariff" placeholder="0.00" step="0.01">
+                            <div class="input-hint">进口关税（如有）</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 运输头程 -->
+                <div class="input-group">
+                    <div class="input-group-title">✈️ 运输头程费用</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>运输方式</label>
+                            <select id="shippingMethod" style="padding: 10px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                <option value="sea">海运 (慢但便宜)</option>
+                                <option value="air">空运 (快但贵)</option>
+                                <option value="express">快递 (最快最贵)</option>
+                            </select>
+                            <div class="input-hint">选择国际运输方式</div>
+                        </div>
+                        <div class="input-item">
+                            <label>头程总费用 (¥)</label>
+                            <input type="number" id="headHaulCost" placeholder="8000.00" step="0.01">
+                            <div class="input-hint">国际运输总费用（含报关清关）</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>头程单件费用 (¥)</label>
+                            <input type="number" id="headHaulPerUnit" placeholder="16.00" step="0.01" readonly>
+                            <div class="input-hint">自动计算：总费用 ÷ 数量</div>
+                        </div>
+                        <div class="input-item">
+                            <label>运输保险费 (¥)</label>
+                            <input type="number" id="shippingInsurance" placeholder="500.00" step="0.01">
+                            <div class="input-hint">货物运输保险费用</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FBA尾程费用 -->
+                <div class="input-group">
+                    <div class="input-group-title">📦 FBA尾程费用</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>FBA配送费 ($)</label>
+                            <input type="number" id="fbaFee" placeholder="3.50" step="0.01">
+                            <div class="input-hint">亚马逊配送费（每件）</div>
+                        </div>
+                        <div class="input-item">
+                            <label>FBA仓储费 ($)</label>
+                            <input type="number" id="storageFee" placeholder="0.50" step="0.01">
+                            <div class="input-hint">月度仓储费（每件）</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>处理费 ($)</label>
+                            <input type="number" id="handlingFee" placeholder="1.00" step="0.01">
+                            <div class="input-hint">FBA入库处理费</div>
+                        </div>
+                        <div class="input-item">
+                            <label>长期仓储费 ($)</label>
+                            <input type="number" id="longTermStorage" placeholder="0.00" step="0.01">
+                            <div class="input-hint">超过365天的额外仓储费</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 销售信息 -->
+                <div class="input-group">
+                    <div class="input-group-title">💰 销售信息</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>销售价格 ($)</label>
+                            <input type="number" id="salePrice" placeholder="29.99" step="0.01">
+                            <div class="input-hint">产品售价（美元）</div>
+                        </div>
+                        <div class="input-item">
+                            <label>销售数量 (件)</label>
+                            <input type="number" id="saleQuantity" placeholder="450">
+                            <div class="input-hint">实际销售数量</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>平台佣金率 (%)</label>
+                            <input type="number" id="platformFeeRate" placeholder="15" step="0.1">
+                            <div class="input-hint">亚马逊销售佣金（通常15%）</div>
+                        </div>
+                        <div class="input-item">
+                            <label>汇率 (¥/$)</label>
+                            <input type="number" id="exchangeRate" placeholder="7.20" step="0.01">
+                            <div class="input-hint">人民币兑美元汇率</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 广告费用 -->
+                <div class="input-group">
+                    <div class="input-group-title">📣 广告费用</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>广告总支出 ($)</label>
+                            <input type="number" id="adSpend" placeholder="500.00" step="0.01">
+                            <div class="input-hint">广告总花费（美元）</div>
+                        </div>
+                        <div class="input-item">
+                            <label>广告单件费用 ($)</label>
+                            <input type="number" id="adPerUnit" placeholder="1.11" step="0.01" readonly>
+                            <div class="input-hint">自动计算：总支出 ÷ 销售数量</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>广告点击数</label>
+                            <input type="number" id="adClicks" placeholder="5000">
+                            <div class="input-hint">广告总点击次数</div>
+                        </div>
+                        <div class="input-item">
+                            <label>广告CPC ($)</label>
+                            <input type="number" id="adCPC" placeholder="0.10" step="0.01" readonly>
+                            <div class="input-hint">自动计算：单次点击成本</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 推广费用 -->
+                <div class="input-group">
+                    <div class="input-group-title">🎉 推广费用</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>促销折扣 ($)</label>
+                            <input type="number" id="promotionDiscount" placeholder="2.00" step="0.01">
+                            <div class="input-hint">优惠券/促销活动折扣</div>
+                        </div>
+                        <div class="input-item">
+                            <label>促销数量 (件)</label>
+                            <input type="number" id="promotionQuantity" placeholder="100">
+                            <div class="input-hint">参与促销的产品数量</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>Vine费用 ($)</label>
+                            <input type="number" id="vineFee" placeholder="200.00" step="0.01">
+                            <div class="input-hint">Amazon Vine评论费用</div>
+                        </div>
+                        <div class="input-item">
+                            <label>其他推广费 ($)</label>
+                            <input type="number" id="otherPromotion" placeholder="0.00" step="0.01">
+                            <div class="input-hint">站外推广、社交媒体等</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 退货信息 -->
+                <div class="input-group">
+                    <div class="input-group-title">↩️ 退货信息</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>退货数量 (件)</label>
+                            <input type="number" id="returnQuantity" placeholder="50">
+                            <div class="input-hint">实际退货数量</div>
+                        </div>
+                        <div class="input-item">
+                            <label>退货率 (%)</label>
+                            <input type="number" id="returnRate" placeholder="11.11" step="0.01" readonly>
+                            <div class="input-hint">自动计算：退货数 ÷ 销售数</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>退货处理费 ($)</label>
+                            <input type="number" id="returnFee" placeholder="5.00" step="0.01">
+                            <div class="input-hint">每件退货处理费用</div>
+                        </div>
+                        <div class="input-item">
+                            <label>退货损失率 (%)</label>
+                            <input type="number" id="returnLossRate" placeholder="30" step="0.1">
+                            <div class="input-hint">无法二次销售的比例</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 其他费用 -->
+                <div class="input-group">
+                    <div class="input-group-title">📋 其他费用</div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>支付手续费 (%)</label>
+                            <input type="number" id="paymentFeeRate" placeholder="0" step="0.1">
+                            <div class="input-hint">第三方支付手续费率</div>
+                        </div>
+                        <div class="input-item">
+                            <label>VAT税率 (%)</label>
+                            <input type="number" id="vatRate" placeholder="0" step="0.1">
+                            <div class="input-hint">欧洲站点增值税率</div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <label>月度订阅费 ($)</label>
+                            <input type="number" id="subscriptionFee" placeholder="39.99" step="0.01">
+                            <div class="input-hint">专业卖家月费</div>
+                        </div>
+                        <div class="input-item">
+                            <label>其他杂费 ($)</label>
+                            <input type="number" id="miscFee" placeholder="0.00" step="0.01">
+                            <div class="input-hint">包装材料、标签等杂费</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 按钮 -->
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calculateProfit()">📊 计算利润</button>
+                    <button class="btn btn-secondary" onclick="loadExampleData()">💡 加载示例数据</button>
+                    <button class="btn btn-secondary" onclick="clearAllInputs()">🗑️ 清空所有</button>
+                </div>
+                
+                <!-- 结果展示 -->
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <div class="result-title">📈 利润计算结果</div>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">总成本 (¥)</div>
+                            <div class="result-value" id="totalCost">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">总收入 (¥)</div>
+                            <div class="result-value" id="totalRevenue">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">毛利润 (¥)</div>
+                            <div class="result-value" id="grossProfit">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">毛利率 (%)</div>
+                            <div class="result-value" id="grossMargin">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">净利润 (¥)</div>
+                            <div class="result-value" id="netProfit">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">净利率 (%)</div>
+                            <div class="result-value" id="netMargin">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">ROI (%)</div>
+                            <div class="result-value" id="roi">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">单件利润 (¥)</div>
+                            <div class="result-value" id="perUnitProfit">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box" id="profitWarning" style="display: none;">
+                        <div class="warning-box-title">⚠️ 利润预警</div>
+                        <div class="warning-box-content" id="warningContent"></div>
+                    </div>
+                    
+                    <div class="tip-box" id="profitTip" style="display: none;">
+                        <div class="tip-box-title">💡 优化建议</div>
+                        <div class="tip-box-content" id="tipContent"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 示例和说明区域 -->
+            <div class="example-section">
+                <div class="section-title">📖 使用说明与示例数据</div>
+                
+                <!-- 示例案例 -->
+                <div class="example-card">
+                    <div class="example-card-title">📦 案例1：蓝牙耳机（盈利产品）</div>
+                    <div class="example-data">
+                        <strong>产品类型：</strong>消费电子产品<br>
+                        <strong>售价：</strong><span class="example-highlight">$29.99</span><br>
+                        <strong>采购成本：</strong>¥50/件 × 500件 = ¥25,000<br>
+                        <strong>头程运费：</strong>海运 ¥8,000（¥16/件）<br>
+                        <strong>FBA费用：</strong>$4.00/件（配送+仓储）<br>
+                        <strong>广告费用：</strong>$500（$1.11/件）<br>
+                        <strong>退货率：</strong>10%（50件退货）<br>
+                        <strong>结果：</strong>净利润 <span class="example-highlight">¥18,350</span>，ROI <span class="example-highlight">32.3%</span>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-card-title">⚠️ 案例2：手机壳（亏损产品）</div>
+                    <div class="example-data">
+                        <strong>产品类型：</strong>红海类目，竞争激烈<br>
+                        <strong>售价：</strong><span class="example-highlight">$9.99</span>（偏低）<br>
+                        <strong>采购成本：</strong>¥15/件 × 1000件 = ¥15,000<br>
+                        <strong>头程运费：</strong>空运 ¥15,000（¥15/件）<br>
+                        <strong>FBA费用：</strong>$3.50/件（配送+仓储）<br>
+                        <strong>广告费用：</strong>$800（CPC高，转化低）<br>
+                        <strong>退货率：</strong>15%（150件退货）<br>
+                        <strong>结果：</strong>净利润 <span class="example-highlight" style="color: #F44336;">-¥3,200</span>，亏损产品！
+                    </div>
+                    <div class="tip-box">
+                        <div class="tip-box-title">💡 避坑提示</div>
+                        <div class="tip-box-content">
+                            • 低价产品（<$10）利润空间小，需严格控制成本<br>
+                            • 空运成本高，低价产品建议海运<br>
+                            • 高退货率直接吞噬利润，需优化产品质量
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 输入字段详解 -->
+                <div class="example-card">
+                    <div class="example-card-title">📝 输入字段详解</div>
+                    <div class="example-data">
+                        <strong>【采购成本】</strong><br>
+                        • 单位采购成本：工厂报价，含材料和人工<br>
+                        • 采购数量：单批次采购量，影响头程单价<br>
+                        • 采购运费：国内物流费用（工厂→仓库）<br>
+                        • 采购关税：进口原材料关税（国内采购通常为0）<br><br>
+                        
+                        <strong>【运输头程】</strong><br>
+                        • 运输方式：海运最便宜（30-40天），空运快（5-7天），快递最快（2-3天）<br>
+                        • 头程总费用：含运输费+报关费+清关费<br>
+                        • 头程单件费用：总费用÷采购数量，自动计算<br>
+                        • 运输保险费：建议购买，费率0.3-0.5%<br><br>
+                        
+                        <strong>【FBA尾程费用】</strong><br>
+                        • FBA配送费：按产品尺寸重量计算，参考亚马逊费率表<br>
+                        • FBA仓储费：月度费用，旺季（Q4）费用翻倍<br>
+                        • 处理费：入库处理费，通常$0.30-$1.00<br>
+                        • 长期仓储费：库存超过365天，额外收费<br><br>
+                        
+                        <strong>【销售信息】</strong><br>
+                        • 销售价格：定价需考虑竞争对手和利润目标<br>
+                        • 销售数量：实际售出数量（不含退货）<br>
+                        • 平台佣金率：亚马逊佣金，大部分类目15%，服装17%<br>
+                        • 汇率：实时汇率，影响人民币利润<br><br>
+                        
+                        <strong>【广告费用】</strong><br>
+                        • 广告总支出：一段时间内的广告总花费<br>
+                        • 广告单件费用：总支出÷销售数量，衡量广告效率<br>
+                        • 广告点击数：总点击次数，计算CPC<br>
+                        • 广告CPC：单次点击成本，竞争类目CPC高<br><br>
+                        
+                        <strong>【推广费用】</strong><br>
+                        • 促销折扣：优惠券折扣金额<br>
+                        • 促销数量：使用优惠券的产品数量<br>
+                        • Vine费用：Amazon Vine评论计划费用（$200/产品）<br>
+                        • 其他推广费：站外推广、社交媒体营销等<br><br>
+                        
+                        <strong>【退货信息】</strong><br>
+                        • 退货数量：实际退货数量<br>
+                        • 退货率：退货数÷销售数，健康水平<5%<br>
+                        • 退货处理费：亚马逊退货处理费<br>
+                        • 退货损失率：无法二次销售的比例，影响实际损失<br><br>
+                        
+                        <strong>【其他费用】</strong><br>
+                        • 支付手续费：第三方支付手续费（Payoneer、WorldFirst）<br>
+                        • VAT税率：欧洲站点增值税，英国20%，德国19%<br>
+                        • 月度订阅费：专业卖家$39.99/月<br>
+                        • 其他杂费：包装材料、标签、胶带等
+                    </div>
+                </div>
+                
+                <!-- 最佳实践 -->
+                <div class="example-card">
+                    <div class="example-card-title">⭐ 成本控制最佳实践</div>
+                    <div class="example-data">
+                        <strong>1. 采购成本优化</strong><br>
+                        • 批量采购：数量越大，单价越低<br>
+                        • 多供应商比价：至少对比3家供应商<br>
+                        • 优化包装：减少体积，降低运输成本<br>
+                        • 质量控制：减少退货率，降低隐形成本<br><br>
+                        
+                        <strong>2. 运输成本优化</strong><br>
+                        • 选择合适运输方式：低价产品海运，高价产品空运<br>
+                        • 混合运输：部分海运+部分空运，平衡时间和成本<br>
+                        • 集货运输：多SKU拼箱，降低单件运费<br>
+                        • 旺季提前备货：避免旺季空运高价<br><br>
+                        
+                        <strong>3. FBA费用优化</strong><br>
+                        • 优化产品尺寸：减少体积，降低仓储费<br>
+                        • 库存周转管理：避免长期仓储费<br>
+                        • 多仓库布局：美东+美西，降低配送距离<br>
+                        • 旺季提前备货：避免旺季仓储费翻倍<br><br>
+                        
+                        <strong>4. 广告成本优化</strong><br>
+                        • 精准关键词：避免广泛匹配浪费<br>
+                        • 否定关键词：排除无效点击<br>
+                        • 定时投放：高转化时段加大预算<br>
+                        • ACoS目标：新产品50-80%，成熟产品15-30%<br><br>
+                        
+                        <strong>5. 退货成本优化</strong><br>
+                        • 产品质量：源头控制退货率<br>
+                        • 产品描述：准确描述，避免误解退货<br>
+                        • 图片优化：高清图片，减少预期差距<br>
+                        • 包装改进：减少运输损坏
+                    </div>
+                </div>
+                
+                <!-- 利润目标 -->
+                <div class="example-card">
+                    <div class="example-card-title">🎯 利润目标参考</div>
+                    <div class="example-data">
+                        <strong>【健康利润水平】</strong><br>
+                        • 净利率：<span class="example-highlight">15-25%</span>（健康水平）<br>
+                        • ROI：<span class="example-highlight">30-50%</span>（健康水平）<br>
+                        • 单件利润：<span class="example-highlight">售价的20-30%</span><br><br>
+                        
+                        <strong>【不同阶段目标】</strong><br>
+                        • 新产品期：净利率5-10%，ROI 10-20%（广告投入大）<br>
+                        • 成长期：净利率10-15%，ROI 20-30%（广告效率提升）<br>
+                        • 成熟期：净利率15-25%，ROI 30-50%（广告成本降低）<br>
+                        • 衰退期：净利率<10%，ROI <20%（竞争加剧）<br><br>
+                        
+                        <strong>【定价策略】</strong><br>
+                        • 成本加成定价：成本 × (1 + 目标利润率)<br>
+                        • 竞争定价：参考竞争对手价格<br>
+                        • 价值定价：基于产品价值而非成本<br>
+                        • 促销定价：短期降价促销，提升销量
+                    </div>
+                </div>
+                
+                <!-- 计算公式 -->
+                <div class="example-card">
+                    <div class="example-card-title">🧮 核心计算公式</div>
+                    <div class="example-data">
+                        <strong>【成本计算】</strong><br>
+                        总成本 = 采购成本 + 头程费用 + FBA费用 + 广告费用 + 推广费用 + 退货成本 + 其他费用<br><br>
+                        
+                        <strong>【收入计算】</strong><br>
+                        总收入 = 销售价格 × 销售数量 × 汇率<br>
+                        实际收入 = 总收入 - 平台佣金 - 支付手续费 - VAT<br><br>
+                        
+                        <strong>【利润计算】</strong><br>
+                        毛利润 = 总收入 - 直接成本（采购+头程+FBA）<br>
+                        净利润 = 毛利润 - 间接成本（广告+推广+退货+其他）<br><br>
+                        
+                        <strong>【利率计算】</strong><br>
+                        毛利率 = 毛利润 ÷ 总收入 × 100%<br>
+                        净利率 = 净利润 ÷ 总收入 × 100%<br>
+                        ROI = 净利润 ÷ 总成本 × 100%<br><br>
+                        
+                        <strong>【退货成本】</strong><br>
+                        退货成本 = 退货数量 × (采购成本 + 头程费用 + FBA配送费 + 退货处理费) × 退货损失率
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 自动计算函数
+        function autoCalculate() {
+            // 头程单件费用
+            const headHaulCost = parseFloat(document.getElementById('headHaulCost').value) || 0;
+            const purchaseQuantity = parseFloat(document.getElementById('purchaseQuantity').value) || 0;
+            if (headHaulCost > 0 && purchaseQuantity > 0) {
+                document.getElementById('headHaulPerUnit').value = (headHaulCost / purchaseQuantity).toFixed(2);
+            }
+            
+            // 广告单件费用
+            const adSpend = parseFloat(document.getElementById('adSpend').value) || 0;
+            const saleQuantity = parseFloat(document.getElementById('saleQuantity').value) || 0;
+            if (adSpend > 0 && saleQuantity > 0) {
+                document.getElementById('adPerUnit').value = (adSpend / saleQuantity).toFixed(2);
+            }
+            
+            // 广告CPC
+            const adClicks = parseFloat(document.getElementById('adClicks').value) || 0;
+            if (adSpend > 0 && adClicks > 0) {
+                document.getElementById('adCPC').value = (adSpend / adClicks).toFixed(2);
+            }
+            
+            // 退货率
+            const returnQuantity = parseFloat(document.getElementById('returnQuantity').value) || 0;
+            if (returnQuantity > 0 && saleQuantity > 0) {
+                document.getElementById('returnRate').value = ((returnQuantity / saleQuantity) * 100).toFixed(2);
+            }
+        }
+        
+        // 监听输入变化
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', autoCalculate);
+        });
+        
+        // 计算利润函数
+        function calculateProfit() {
+            autoCalculate();
+            
+            // 获取所有输入值
+            const purchaseCost = parseFloat(document.getElementById('purchaseCost').value) || 0;
+            const purchaseQuantity = parseFloat(document.getElementById('purchaseQuantity').value) || 0;
+            const purchaseShipping = parseFloat(document.getElementById('purchaseShipping').value) || 0;
+            const purchaseTariff = parseFloat(document.getElementById('purchaseTariff').value) || 0;
+            
+            const headHaulCost = parseFloat(document.getElementById('headHaulCost').value) || 0;
+            const shippingInsurance = parseFloat(document.getElementById('shippingInsurance').value) || 0;
+            
+            const fbaFee = parseFloat(document.getElementById('fbaFee').value) || 0;
+            const storageFee = parseFloat(document.getElementById('storageFee').value) || 0;
+            const handlingFee = parseFloat(document.getElementById('handlingFee').value) || 0;
+            const longTermStorage = parseFloat(document.getElementById('longTermStorage').value) || 0;
+            
+            const salePrice = parseFloat(document.getElementById('salePrice').value) || 0;
+            const saleQuantity = parseFloat(document.getElementById('saleQuantity').value) || 0;
+            const platformFeeRate = parseFloat(document.getElementById('platformFeeRate').value) || 15;
+            const exchangeRate = parseFloat(document.getElementById('exchangeRate').value) || 7.2;
+            
+            const adSpend = parseFloat(document.getElementById('adSpend').value) || 0;
+            
+            const promotionDiscount = parseFloat(document.getElementById('promotionDiscount').value) || 0;
+            const promotionQuantity = parseFloat(document.getElementById('promotionQuantity').value) || 0;
+            const vineFee = parseFloat(document.getElementById('vineFee').value) || 0;
+            const otherPromotion = parseFloat(document.getElementById('otherPromotion').value) || 0;
+            
+            const returnQuantity = parseFloat(document.getElementById('returnQuantity').value) || 0;
+            const returnFee = parseFloat(document.getElementById('returnFee').value) || 0;
+            const returnLossRate = parseFloat(document.getElementById('returnLossRate').value) || 0;
+            
+            const paymentFeeRate = parseFloat(document.getElementById('paymentFeeRate').value) || 0;
+            const vatRate = parseFloat(document.getElementById('vatRate').value) || 0;
+            const subscriptionFee = parseFloat(document.getElementById('subscriptionFee').value) || 0;
+            const miscFee = parseFloat(document.getElementById('miscFee').value) || 0;
+            
+            // 计算各项成本（人民币）
+            const totalPurchaseCost = (purchaseCost * purchaseQuantity) + purchaseShipping + purchaseTariff;
+            const totalHeadHaulCost = headHaulCost + shippingInsurance;
+            const totalFBAFee = (fbaFee + storageFee + handlingFee + longTermStorage) * saleQuantity * exchangeRate;
+            const totalAdCost = adSpend * exchangeRate;
+            const totalPromotionCost = ((promotionDiscount * promotionQuantity) + vineFee + otherPromotion) * exchangeRate;
+            
+            // 退货成本计算
+            const headHaulPerUnit = headHaulCost / purchaseQuantity;
+            const returnCost = returnQuantity * ((purchaseCost + headHaulPerUnit) + (fbaFee + returnFee) * exchangeRate) * (returnLossRate / 100);
+            
+            const totalOtherCost = (subscriptionFee + miscFee) * exchangeRate;
+            
+            // 总成本
+            const totalCost = totalPurchaseCost + totalHeadHaulCost + totalFBAFee + totalAdCost + totalPromotionCost + returnCost + totalOtherCost;
+            
+            // 收入计算（人民币）
+            const totalRevenue = salePrice * saleQuantity * exchangeRate;
+            const platformFee = totalRevenue * (platformFeeRate / 100);
+            const paymentFee = totalRevenue * (paymentFeeRate / 100);
+            const vatFee = totalRevenue * (vatRate / 100);
+            const actualRevenue = totalRevenue - platformFee - paymentFee - vatFee;
+            
+            // 利润计算
+            const directCost = totalPurchaseCost + totalHeadHaulCost + totalFBAFee;
+            const indirectCost = totalAdCost + totalPromotionCost + returnCost + totalOtherCost;
+            
+            const grossProfit = actualRevenue - directCost;
+            const netProfit = grossProfit - indirectCost;
+            
+            // 利率计算
+            const grossMargin = actualRevenue > 0 ? (grossProfit / actualRevenue * 100) : 0;
+            const netMargin = actualRevenue > 0 ? (netProfit / actualRevenue * 100) : 0;
+            const roi = totalCost > 0 ? (netProfit / totalCost * 100) : 0;
+            const perUnitProfit = saleQuantity > 0 ? (netProfit / saleQuantity) : 0;
+            
+            // 显示结果
+            document.getElementById('resultSection').style.display = 'block';
+            document.getElementById('totalCost').textContent = totalCost.toFixed(2);
+            document.getElementById('totalRevenue').textContent = actualRevenue.toFixed(2);
+            
+            const grossProfitElement = document.getElementById('grossProfit');
+            grossProfitElement.textContent = grossProfit.toFixed(2);
+            grossProfitElement.className = 'result-value ' + (grossProfit >= 0 ? 'positive' : 'negative');
+            
+            document.getElementById('grossMargin').textContent = grossMargin.toFixed(2) + '%';
+            
+            const netProfitElement = document.getElementById('netProfit');
+            netProfitElement.textContent = netProfit.toFixed(2);
+            netProfitElement.className = 'result-value ' + (netProfit >= 0 ? 'positive' : 'negative');
+            
+            document.getElementById('netMargin').textContent = netMargin.toFixed(2) + '%';
+            document.getElementById('roi').textContent = roi.toFixed(2) + '%';
+            document.getElementById('perUnitProfit').textContent = perUnitProfit.toFixed(2);
+            
+            // 利润预警
+            const warningBox = document.getElementById('profitWarning');
+            const warningContent = document.getElementById('warningContent');
+            const tipBox = document.getElementById('profitTip');
+            const tipContent = document.getElementById('tipContent');
+            
+            if (netProfit < 0) {
+                warningBox.style.display = 'block';
+                tipBox.style.display = 'block';
+                warningContent.innerHTML = `
+                    <strong>该产品当前亏损！</strong><br>
+                    • 净利润：¥${netProfit.toFixed(2)}<br>
+                    • 净利率：${netMargin.toFixed(2)}%<br>
+                    • ROI：${roi.toFixed(2)}%<br>
+                    建议立即调整定价策略或优化成本结构！
+                `;
+                tipContent.innerHTML = `
+                    <strong>优化建议：</strong><br>
+                    1. 提高售价：当前售价 $${salePrice}，建议提高至 $${(salePrice * 1.2).toFixed(2)}<br>
+                    2. 降低广告：广告占比 ${(totalAdCost/actualRevenue*100).toFixed(2)}%，建议优化关键词<br>
+                    3. 优化运输：考虑海运降低头程成本<br>
+                    4. 减少退货：退货率 ${((returnQuantity/saleQuantity)*100).toFixed(2)}%，优化产品质量
+                `;
+            } else if (netMargin < 10) {
+                warningBox.style.display = 'block';
+                tipBox.style.display = 'block';
+                warningContent.innerHTML = `
+                    <strong>利润率偏低！</strong><br>
+                    • 净利率：${netMargin.toFixed(2)}%（建议15-25%）<br>
+                    • ROI：${roi.toFixed(2)}%（建议30-50%）<br>
+                    建议优化成本结构提升利润率！
+                `;
+                tipContent.innerHTML = `
+                    <strong>优化建议：</strong><br>
+                    1. 检查广告效率：ACoS是否过高？<br>
+                    2. 优化采购成本：批量采购降低单价<br>
+                    3. 降低退货率：当前 ${((returnQuantity/saleQuantity)*100).toFixed(2)}%<br>
+                    4. 优化运输方式：考虑海运降低成本
+                `;
+            } else if (netMargin >= 15) {
+                warningBox.style.display = 'none';
+                tipBox.style.display = 'block';
+                tipContent.innerHTML = `
+                    <strong>恭喜！产品盈利健康！</strong><br>
+                    • 净利率：${netMargin.toFixed(2)}%（健康水平）<br>
+                    • ROI：${roi.toFixed(2)}%（健康水平）<br>
+                    • 单件利润：¥${perUnitProfit.toFixed(2)}<br><br>
+                    <strong>持续优化建议：</strong><br>
+                    1. 保持广告效率，监控ACoS变化<br>
+                    2. 定期复盘成本结构<br>
+                    3. 关注竞争对手价格变化<br>
+                    4. 旺季提前备货，避免空运高价
+                `;
+            } else {
+                warningBox.style.display = 'none';
+                tipBox.style.display = 'none';
+            }
+        }
+        
+        // 加载示例数据
+        function loadExampleData() {
+            // 案例1：蓝牙耳机（盈利产品）
+            document.getElementById('productName').value = '蓝牙耳机 B08XYZ123';
+            document.getElementById('unitType').value = 'perBatch';
+            document.getElementById('purchaseCost').value = '50';
+            document.getElementById('purchaseQuantity').value = '500';
+            document.getElementById('purchaseShipping').value = '2000';
+            document.getElementById('purchaseTariff').value = '0';
+            document.getElementById('shippingMethod').value = 'sea';
+            document.getElementById('headHaulCost').value = '8000';
+            document.getElementById('shippingInsurance').value = '500';
+            document.getElementById('fbaFee').value = '3.50';
+            document.getElementById('storageFee').value = '0.50';
+            document.getElementById('handlingFee').value = '1.00';
+            document.getElementById('longTermStorage').value = '0';
+            document.getElementById('salePrice').value = '29.99';
+            document.getElementById('saleQuantity').value = '450';
+            document.getElementById('platformFeeRate').value = '15';
+            document.getElementById('exchangeRate').value = '7.2';
+            document.getElementById('adSpend').value = '500';
+            document.getElementById('adClicks').value = '5000';
+            document.getElementById('promotionDiscount').value = '2';
+            document.getElementById('promotionQuantity').value = '50';
+            document.getElementById('vineFee').value = '200';
+            document.getElementById('otherPromotion').value = '0';
+            document.getElementById('returnQuantity').value = '50';
+            document.getElementById('returnFee').value = '5';
+            document.getElementById('returnLossRate').value = '30';
+            document.getElementById('paymentFeeRate').value = '0';
+            document.getElementById('vatRate').value = '0';
+            document.getElementById('subscriptionFee').value = '39.99';
+            document.getElementById('miscFee').value = '100';
+            
+            autoCalculate();
+            calculateProfit();
+        }
+        
+        // 清空所有输入
+        function clearAllInputs() {
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.value = '';
+            });
+            document.getElementById('productName').value = '';
+            document.getElementById('resultSection').style.display = 'none';
+            document.getElementById('profitWarning').style.display = 'none';
+            document.getElementById('profitTip').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
