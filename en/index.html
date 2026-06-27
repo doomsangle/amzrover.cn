@@ -1,0 +1,682 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Amazon Seller OperationsGlossary</title><style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ min-height: 100vh;
+ padding: 40px 20px;
+ }
+
+.container {
+ max-width: 1000px;
+ margin: 0 auto;
+ }
+
+.header {
+ text-align: center;
+ color: white;
+ margin-bottom: 40px;
+ }
+
+.header h1 {
+ font-size: 36px;
+ font-weight: 700;
+ margin-bottom: 10px;
+ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+ }
+
+.header p {
+ font-size: 16px;
+ opacity: 0.9;
+ margin-bottom: 20px;
+ }
+
+.header .subtitle {
+ font-size: 14px;
+ opacity: 0.8;
+ background: rgba(255, 255, 255, 0.1);
+ padding: 10px 20px;
+ border-radius: 20px;
+ display: inline-block;
+ }
+
+.flow-section {
+ background: white;
+ border-radius: 20px;
+ padding: 30px;
+ margin-bottom: 30px;
+ box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+ }
+
+.section-title {
+ font-size: 20px;
+ font-weight: 600;
+ color: #333;
+ margin-bottom: 20px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ }
+
+.section-title span {
+ background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+ color: white;
+ padding: 5px 12px;
+ border-radius: 8px;
+ font-size: 12px;
+ font-weight: 500;
+ }
+
+.flow-timeline {
+ position: relative;
+ padding-left: 40px;
+ }
+
+.flow-timeline::before {
+ content: '';
+ position: absolute;
+ left: 15px;
+ top: 0;
+ bottom: 0;
+ width: 3px;
+ background: #e0e0e0;
+ border-radius: 3px;
+ }
+
+.flow-item {
+ position: relative;
+ margin-bottom: 25px;
+ padding: 20px;
+ background: #f8f9fa;
+ border-radius: 12px;
+ border: 1px solid #eee;
+ transition: all 0.3s ease;
+ }
+
+.flow-item:hover {
+ box-shadow: 0 4px 15px rgba(255, 153, 0, 0.1);
+ border-color: #FF9900;
+ transform: translateX(5px);
+ }
+
+.flow-item:last-child {
+ margin-bottom: 0;
+ }
+
+.flow-number {
+ position: absolute;
+ left: -35px;
+ top: 20px;
+ width: 30px;
+ height: 30px;
+ background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+ color: white;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 14px;
+ font-weight: 600;
+ box-shadow: 0 3px 10px rgba(255, 153, 0, 0.3);
+ }
+
+.flow-item.completed .flow-number {
+ background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+ }
+
+.flow-item-title {
+ font-size: 16px;
+ font-weight: 600;
+ color: #333;
+ margin-bottom: 8px;
+ }
+
+.flow-item-desc {
+ font-size: 13px;
+ color: #666;
+ line-height: 1.6;
+ margin-bottom: 10px;
+ }
+
+.flow-item-link {
+ display: inline-block;
+ padding: 6px 16px;
+ background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+ color: white;
+ text-decoration: none;
+ border-radius: 20px;
+ font-size: 13px;
+ font-weight: 500;
+ transition: all 0.3s ease;
+ }
+
+.flow-item-link:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+ }
+
+.flow-item-links {
+ margin-top: 10px;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ }
+
+.flow-item-links .tag-link {
+ display: inline-block;
+ padding: 4px 10px;
+ font-size: 11px;
+ border-radius: 12px;
+ text-decoration: none;
+ transition: all 0.2s ease;
+ }
+
+.flow-item-links .tag-faq {
+ background: #e0f2fe;
+ color: #0369a1;
+ }
+
+.flow-item-links .tag-faq:hover {
+ background: #bae6fd;
+ }
+
+.flow-item-links .tag-term {
+ background: #f3e8ff;
+ color: #7c3aed;
+ }
+
+.flow-item-links .tag-term:hover {
+ background: #e9d5ff;
+ }
+
+.advanced-section {
+ background: white;
+ border-radius: 20px;
+ padding: 30px;
+ box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+ }
+
+.grid-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 20px;
+ }
+
+.grid-item {
+ background: #f8f9fa;
+ border-radius: 12px;
+ padding: 20px;
+ border: 1px solid #eee;
+ transition: all 0.3s ease;
+ }
+
+.grid-item:hover {
+ box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+ border-color: #667eea;
+ transform: translateY(-5px);
+ }
+
+.grid-item-icon {
+ font-size: 28px;
+ margin-bottom: 12px;
+ }
+
+.grid-item-title {
+ font-size: 15px;
+ font-weight: 600;
+ color: #333;
+ margin-bottom: 8px;
+ }
+
+.grid-item-desc {
+ font-size: 13px;
+ color: #666;
+ line-height: 1.5;
+ margin-bottom: 12px;
+ }
+
+.grid-item-link {
+ display: inline-block;
+ padding: 6px 16px;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ color: white;
+ text-decoration: none;
+ border-radius: 20px;
+ font-size: 13px;
+ font-weight: 500;
+ transition: all 0.3s ease;
+ }
+
+.grid-item-link:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+ }
+
+.grid-item-links {
+ margin-top: 10px;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ }
+
+.grid-item-links .tag-link {
+ display: inline-block;
+ padding: 3px 8px;
+ font-size: 10px;
+ border-radius: 10px;
+ text-decoration: none;
+ transition: all 0.2s ease;
+ }
+
+.grid-item-links .tag-faq {
+ background: #e0f2fe;
+ color: #0369a1;
+ }
+
+.grid-item-links .tag-faq:hover {
+ background: #bae6fd;
+ }
+
+.grid-item-links .tag-term {
+ background: #f3e8ff;
+ color: #7c3aed;
+ }
+
+.grid-item-links .tag-term:hover {
+ background: #e9d5ff;
+ }
+
+.footer {
+ text-align: center;
+ color: white;
+ margin-top: 40px;
+ font-size: 13px;
+ opacity: 0.7;
+ }
+
+.footer a {
+ color: white;
+ text-decoration: underline;
+ }
+
+ @media (max-width: 600px) {
+ body {
+ padding: 20px 10px;
+ }
+
+.header h1 {
+ font-size: 26px;
+ }
+
+.flow-section,.advanced-section {
+ padding: 20px 15px;
+ }
+
+.flow-timeline {
+ padding-left: 35px;
+ }
+
+.flow-number {
+ left: -30px;
+ width: 25px;
+ height: 25px;
+ font-size: 12px;
+ }
+
+.grid-container {
+ grid-template-columns: 1fr;
+ }
+ }
+
+ /* ===== Fishbone diagram iframe embedding ===== */
+.fishbone-section {
+ background: white;
+ border-radius: 20px;
+ padding: 25px 30px 0 30px;
+ margin-bottom: 30px;
+ box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+ overflow: hidden;
+ }
+
+.fishbone-iframe {
+ width: 100%;
+ height: 500px;
+ display: block;
+ border: none;
+ }
+
+ @media (max-width: 900px) {
+.fishbone-section {
+ padding: 20px 15px 0 15px;
+ }
+.fishbone-iframe {
+ height: 620px;
+ }
+ }
+ 
+ /* Language Switcher */
+.lang-switcher {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ z-index: 9999;
+ display: flex;
+ gap: 0;
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+ }
+.lang-switcher a {
+ display: inline-block;
+ padding: 8px 14px;
+ font-size: 13px;
+ font-weight: 600;
+ text-decoration: none;
+ transition: all 0.3s ease;
+ }
+.lang-switcher .lang-active {
+ background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+ color: white;
+ }
+.lang-switcher .lang-inactive {
+ background: white;
+ color: #333;
+ }
+.lang-switcher .lang-inactive:hover {
+ background: #f0f0f0;
+ }
+
+        /* Global Search */
+        .search-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9998;
+            width: 320px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-box:focus {
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.3);
+            transform: scale(1.02);
+        }
+        .search-box::placeholder {
+            color: #999;
+        }
+        .search-results {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+        .search-results.active {
+            display: block;
+        }
+        .search-result-item {
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        .search-result-item:hover {
+            background: #f0f9ff;
+        }
+        .search-result-item .result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .search-result-item .result-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .search-result-item .result-type {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-right: 6px;
+        }
+        .search-result-item .result-type.page {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        .no-results {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+        .search-highlight {
+            background: #fff3cd;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        @media (max-width: 768px) {
+            .search-container {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .search-results {
+                position: static;
+                max-height: 300px;
+                margin-top: 10px;
+            }
+        }
+ </style><!-- SEO Meta Tags --><meta name="description" content="Amazon Seller OperationsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><meta name="keywords" content="Amazon operations,Amazon seller,cross-border e-commerce,Amazon Seller OperationsGlossary,amzrover"><meta name="author" content="amzrover.cn"><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.amzrover.cn/en/index.html"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:url" content="https://www.amzrover.cn/en/index.html"><meta property="og:title" content="Amazon Seller OperationsGlossary"><meta property="og:description" content="Amazon Seller OperationsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><meta property="og:site_name" content="Amazon Seller Knowledge Base - amzrover.cn"><meta property="og:locale" content="en_US"><!-- Twitter Card --><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Amazon Seller OperationsGlossary"><meta name="twitter:description" content="Amazon Seller OperationsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><!-- GEO Meta Tags --><meta name="geo.region" content="CN"><meta name="geo.placename" content="China"><meta name="language" content="en"><meta name="distribution" content="global"><meta name="rating" content="general"><meta name="revisit-after" content="7 days"><!-- Domain --><meta name="generator" content="amzrover.cn"><!-- JSON-LD Structured Data --><script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Amazon Seller Knowledge Base",
+ "alternateName": "amzrover.cn - Amazon Seller OperationsGlossary",
+ "url": "https://www.amzrover.cn",
+ "description": "From beginner to expert, a one-stop guide to Amazon operations core concepts. Covering certification, advertising, on-site operations, logistics, data analytics and more.",
+ "keywords": "Amazon operations,Amazon seller,cross-border e-commerce,FBA,ad optimization,product research,keywords,ACoS,ROAS",
+ "inLanguage": "en",
+ "publisher": {
+ "@type": "Organization",
+ "name": "amzrover.cn",
+ "url": "https://www.amzrover.cn"
+ }
+ }
+ </script><script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Amazon Operations Workflow",
+ "itemListElement": [
+ {"@type": "ListItem", "position": 1, "name": "Amazon Store Registration", "url": "https://www.amzrover.cn/01-account-registration.html"},
+ {"@type": "ListItem", "position": 2, "name": "WorldFirst Registration", "url": "https://www.amzrover.cn/02-worldfirst.html"},
+ {"@type": "ListItem", "position": 3, "name": "Listing Product Upload", "url": "https://www.amzrover.cn/03-listing-upload.html"},
+ {"@type": "ListItem", "position": 4, "name": "Brand Registration", "url": "https://www.amzrover.cn/04-brand-registry.html"},
+ {"@type": "ListItem", "position": 5, "name": "FBA Shipment", "url": "https://www.amzrover.cn/05-fba-shipping.html"},
+ {"@type": "ListItem", "position": 6, "name": "Amazon Warehouse Logistics", "url": "https://www.amzrover.cn/06-logistics.html"},
+ {"@type": "ListItem", "position": 7, "name": "Amazon Advertising", "url": "https://www.amzrover.cn/07-advertising.html"},
+ {"@type": "ListItem", "position": 8, "name": "Amazon After-Sales Service", "url": "https://www.amzrover.cn/08-after-sales.html"},
+ {"@type": "ListItem", "position": 9, "name": "Account Settlement & Payouts", "url": "https://www.amzrover.cn/09-settlement.html"}
+ ]
+ }
+ </script>
+    <script>
+        // Search index data
+        const searchIndex = [
+            // Page links
+            { title: "Amazon Store Registration", url: "01-account-registration.html", type: "page", desc: "Amazon account registration, seller plan selection, KYC verification" },
+            { title: "WorldFirst Registration", url: "02-worldfirst.html", type: "page", desc: "WorldFirst registration, account linking, payment setup" },
+            { title: "Listing Product Upload", url: "03-listing-upload.html", type: "page", desc: "Product upload, keyword strategy, image optimization, listing optimization" },
+            { title: "Brand Registration", url: "04-brand-registry.html", type: "page", desc: "Brand registry, trademark application, A+ content" },
+            { title: "FBA Shipment Process", url: "05-fba-shipping.html", type: "page", desc: "FBA shipping plan creation, head haul logistics, inbound process" },
+            { title: "Amazon Warehouse Logistics", url: "06-logistics.html", type: "page", desc: "Logistics method selection, customs clearance, logistics terminology" },
+            { title: "Amazon Advertising", url: "07-advertising.html", type: "page", desc: "Ad strategy, keyword bidding, ACoS optimization" },
+            { title: "Amazon After-Sales Service", url: "08-after-sales.html", type: "page", desc: "Customer service, refunds & returns, review management" },
+            { title: "Account Settlement", url: "09-settlement.html", type: "page", desc: "Settlement cycle, fund management, profit calculation" },
+            { title: "Review Management", url: "10-review-management.html", type: "page", desc: "Review management, rating impact, negative review handling" },
+
+            // Core concepts
+            { title: "FBA (Fulfillment by Amazon)", url: "terms/fba.html", type: "term", desc: "Amazon's logistics and fulfillment service where sellers ship products to Amazon warehouses" },
+            { title: "FBM (Fulfillment by Merchant)", url: "terms/fbm.html", type: "term", desc: "Self-fulfillment model where sellers handle storage, packaging, shipping and customer service" },
+            { title: "SKU (Stock Keeping Unit)", url: "terms/sku.html", type: "term", desc: "Unique code used to identify and manage inventory" },
+            { title: "ASIN (Amazon Standard Identification Number)", url: "terms/asin.html", type: "term", desc: "Amazon's unique identifier for products on the marketplace" },
+            { title: "ACoS (Advertising Cost of Sales)", url: "terms/acos.html", type: "term", desc: "Ratio of ad spend to sales revenue, key advertising metric" },
+            { title: "ROAS (Return on Advertising Spend)", url: "terms/roas.html", type: "term", desc: "Revenue generated for every dollar spent on advertising" },
+            { title: "KYC (Know Your Customer)", url: "terms/kyc.html", type: "term", desc: "Amazon's identity verification and review process for sellers" },
+            { title: "CPC (Cost Per Click)", url: "terms/cpc.html", type: "term", desc: "Amount paid for each click in pay-per-click advertising" },
+            { title: "CTR (Click-Through Rate)", url: "terms/ctr.html", type: "term", desc: "Percentage of people who click on an ad or listing after seeing it" },
+            { title: "CVR (Conversion Rate)", url: "terms/cvr.html", type: "term", desc: "Percentage of visitors who complete a purchase" },
+            { title: "Buy Box", url: "terms/buybox.html", type: "term", desc: "The featured seller box that wins the majority of sales" },
+            { title: "Listing", url: "terms/listing.html", type: "term", desc: "Product page including title, images, description and other information" },
+            { title: "Variation", url: "terms/variation.html", type: "term", desc: "Different specifications of a product like color, size, etc." },
+            { title: "Keyword", url: "terms/keyword.html", type: "term", desc: "Words used for searching and matching products" },
+            { title: "Long-tail Keyword", url: "terms/long-tail-keyword.html", type: "term", desc: "Lower search volume but more specific keywords" },
+            { title: "Ad Group", url: "terms/ad-group.html", type: "term", desc: "Container within a campaign containing keywords and ads" },
+            { title: "Negative Keyword", url: "terms/negative-keywords.html", type: "term", desc: "Words that prevent ads from showing for certain searches" },
+            { title: "Bid", url: "terms/bid.html", type: "term", desc: "Maximum amount you're willing to pay for each ad click" },
+            { title: "Browse Node", url: "terms/browse-node.html", type: "term", desc: "Category node in Amazon's product classification system" },
+            { title: "Head Haul", url: "terms/head-haul.html", type: "term", desc: "International shipping from domestic origin to Amazon warehouse" },
+
+            // More terms
+            { title: "Professional Seller", url: "terms/professional-seller.html", type: "term", desc: "Monthly subscription plan with access to advanced features" },
+            { title: "Individual Seller", url: "terms/individual-seller.html", type: "term", desc: "Pay-per-item plan suitable for small-scale selling" },
+            { title: "Account Association", url: "terms/guanlian.html", type: "term", desc: "Amazon's detection of relationships between multiple accounts" },
+            { title: "Secondary Review", url: "terms/second-review.html", type: "term", desc: "Amazon's additional review of seller accounts" },
+            { title: "Global Selling", url: "terms/global-selling.html", type: "term", desc: "Selling across multiple Amazon marketplaces" },
+            { title: "Brand Registry", url: "terms/brand-registry.html", type: "term", desc: "Amazon's program for protecting brand rights" },
+            { title: "Transparency", url: "terms/transparency.html", type: "term", desc: "Amazon's anti-counterfeiting program with tracking labels" },
+            { title: "Project Zero", url: "terms/project-zero.html", type: "term", desc: "Amazon program allowing brands to remove counterfeit listings" },
+            { title: "A+ Content", url: "terms/a-plus.html", type: "term", desc: "Enhanced brand content to improve conversion rates" },
+            { title: "Suspected Bribery", url: "terms/suohui.html", type: "term", desc: "Policy violation that may lead to account suspension" },
+
+            // FAQ categories
+            { title: "Registration FAQ", url: "faq/faq-registration.html", type: "faq", desc: "Common questions about Amazon account registration" },
+            { title: "Account FAQ", url: "faq/faq-account.html", type: "faq", desc: "Common questions about account operations" },
+            { title: "Finance FAQ", url: "faq/faq-finance.html", type: "faq", desc: "Common questions about payments and finances" },
+            { title: "Logistics FAQ", url: "faq/faq-logistics.html", type: "faq", desc: "Common questions about shipping and logistics" },
+            { title: "Listing Optimization FAQ", url: "faq/faq-listing.html", type: "faq", desc: "Common questions about product listing optimization" },
+            { title: "Product Research FAQ", url: "faq/faq-product-research.html", type: "faq", desc: "Common questions about product selection and market research" },
+            { title: "Brand FAQ", url: "faq/faq-brand.html", type: "faq", desc: "Common questions about brand registry and IP" },
+            { title: "FBA FAQ", url: "faq/faq-fba.html", type: "faq", desc: "Common questions about FBA shipping and storage" },
+            { title: "Advertising FAQ", url: "faq/faq-ads.html", type: "faq", desc: "Common questions about ad campaigns and optimization" },
+            { title: "After-Sales FAQ", url: "faq/faq-after-sales.html", type: "faq", desc: "Common questions about customer service and support" }
+        ];
+
+        // Search function
+        function performSearch(query) {
+            const resultsContainer = document.getElementById('searchResults');
+            if (!query || query.length < 1) {
+                resultsContainer.classList.remove('active');
+                return;
+            }
+
+            query = query.toLowerCase().trim();
+            const results = searchIndex.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.desc.toLowerCase().includes(query);
+            });
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">No results found. Try different keywords.</div>';
+            } else {
+                resultsContainer.innerHTML = results.map(item => {
+                    const highlightedTitle = item.title.replace(
+                        new RegExp(`(${query})`, 'gi'),
+                        '<span class="search-highlight">$1</span>'
+                    );
+                    return `
+                        <div class="search-result-item" onclick="window.location.href='${item.url}'">
+                            <div class="result-title">
+                                <span class="result-type ${item.type}">${getTypeLabel(item.type)}</span>
+                                ${highlightedTitle}
+                            </div>
+                            <div class="result-desc">${item.desc}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            resultsContainer.classList.add('active');
+        }
+
+        function getTypeLabel(type) {
+            const labels = {
+                'page': 'Page',
+                'term': 'Term',
+                'faq': 'FAQ'
+            };
+            return labels[type] || type;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const resultsContainer = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', function(e) {
+                performSearch(e.target.value);
+            });
+
+            searchInput.addEventListener('focus', function() {
+                if (this.value.length > 0) {
+                    resultsContainer.classList.add('active');
+                }
+            });
+
+            // Click outside to close results
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    resultsContainer.classList.remove('active');
+                }
+            });
+
+            // ESC key to close results
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    resultsContainer.classList.remove('active');
+                    searchInput.blur();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="lang-switcher"><a href="../index.html" class="lang-inactive" title="Chinese">中文</a><a href="index.html" class="lang-active" title="English">EN</a></div>
+    
+    <!-- Search box -->
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="🔍 Search terms/pages/FAQs...">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+    
+    <div class="container"><div class="header"><h1>Amazon Seller OperationsGlossary</h1><p>From beginner to expert - a one-stop guide to Amazon operations core concepts</p><div class="subtitle">Covering certification & compliance, advertising, on-site operations, logistics, data analytics and more</div></div><div class="fishbone-section"><iframe src="fishbone.html" class="fishbone-iframe" frameborder="0" scrolling="no"></iframe></div><div class="flow-section"><div class="section-title"><span>Operations Workflow</span>
+ Complete Guide to Setting Up Your Amazon Store
+ </div><div class="flow-timeline"><div class="flow-item completed" id="step-1"><div class="flow-number">1</div><div class="flow-item-title">Amazon Store Registration</div><div class="flow-item-desc">Understand the differences between Professional and Individual seller plans, registration requirements, review process, marketplace selection and other core concepts</div><a href="01-account-registration.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-registration.html" class="tag-link tag-faq">❓ Registration FAQ</a><a href="faq/faq-account.html" class="tag-link tag-faq">❓ Account FAQ</a><a href="terms/professional-seller.html" class="tag-link tag-term">📖 Professional Seller</a><a href="terms/kyc.html" class="tag-link tag-term">📖 KYC Verification</a><a href="terms/guanlian.html" class="tag-link tag-term">📖 Account Association</a></div></div><div class="flow-item completed" id="step-2"><div class="flow-number">2</div><div class="flow-item-title">WorldFirst Registration & Bank Account Linking</div><div class="flow-item-desc">Learn about payment collection tools like WorldFirst and Payoneer, account registration, linking process, and withdrawal methods</div><a href="02-worldfirst.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-settlement.html" class="tag-link tag-faq">❓ Settlement FAQ</a><a href="faq/faq-finance.html" class="tag-link tag-faq">❓ Finance FAQ</a></div></div><div class="flow-item completed" id="step-3"><div class="flow-number">3</div><div class="flow-item-title">Listing Product Upload</div><div class="flow-item-desc">Master listing structure, keyword strategy, image requirements, upload methods, and optimization techniques</div><a href="03-listing-upload.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-listing.html" class="tag-link tag-faq">❓ Listing Optimization FAQ</a><a href="faq/faq-product-research.html" class="tag-link tag-faq">❓ Product Research FAQ</a><a href="terms/honghai.html" class="tag-link tag-term">📖 Red Ocean</a><a href="terms/baokuan.html" class="tag-link tag-term">📖 Best Seller</a></div></div><div class="flow-item completed" id="step-4"><div class="flow-number">4</div><div class="flow-item-title">Brand Registration</div><div class="flow-item-desc">Learn about brand registry process, trademark application, A+ content, and brand protection tools</div><a href="04-brand-registry.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-brand.html" class="tag-link tag-faq">❓ Brand FAQ</a><a href="faq/faq-ip.html" class="tag-link tag-faq">❓ Intellectual Property FAQ</a></div></div><div class="flow-item completed" id="step-5"><div class="flow-number">5</div><div class="flow-item-title">FBA Shipment to Amazon Warehouse</div><div class="flow-item-desc">Learn to create shipping plans, inbound preparation, label printing, FBA fees, and inbound processes</div><a href="05-fba-shipping.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-fba.html" class="tag-link tag-faq">❓ FBA Logistics FAQ</a><a href="faq/faq-shipping.html" class="tag-link tag-faq">❓ International Shipping FAQ</a><a href="terms/fba.html" class="tag-link tag-term">📖 FBA</a><a href="terms/head-haul.html" class="tag-link tag-term">📖 Head Haul</a></div></div><div class="flow-item completed" id="step-6"><div class="flow-number">6</div><div class="flow-item-title">Amazon Warehouse Logistics</div><div class="flow-item-desc">Master air freight, sea freight, express shipping methods, customs clearance processes, and logistics terminology</div><a href="06-logistics.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-shipping.html" class="tag-link tag-faq">❓ International Shipping FAQ</a><a href="faq/faq-fba.html" class="tag-link tag-faq">❓ FBA Logistics FAQ</a><a href="terms/fbm.html" class="tag-link tag-term">📖 FBM</a><a href="terms/head-haul.html" class="tag-link tag-term">📖 Head Haul</a></div></div><div class="flow-item completed" id="step-7"><div class="flow-number">7</div><div class="flow-item-title">Amazon Advertising</div><div class="flow-item-desc">Learn about Sponsored Products, Sponsored Brands, Sponsored Display, keyword matching, and ad metrics</div><a href="07-advertising.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-ads.html" class="tag-link tag-faq">❓ Advertising FAQ</a><a href="faq/faq-optimization.html" class="tag-link tag-faq">❓ Ad Optimization FAQ</a><a href="terms/acos.html" class="tag-link tag-term">📖 ACoS</a><a href="terms/cpc.html" class="tag-link tag-term">📖 CPC</a><a href="terms/ctr.html" class="tag-link tag-term">📖 CTR</a><a href="terms/roas.html" class="tag-link tag-term">📖 ROAS</a><a href="terms/conversion-rate.html" class="tag-link tag-term">📖 Conversion Rate</a><a href="terms/sponsored-products.html" class="tag-link tag-term">📖 Sponsored Products</a><a href="terms/sponsored-brands.html" class="tag-link tag-term">📖 Sponsored Brands</a><a href="terms/sponsored-display.html" class="tag-link tag-term">📖 Sponsored Display</a><a href="terms/exact-match.html" class="tag-link tag-term">📖 Exact Match</a><a href="terms/phrase-match.html" class="tag-link tag-term">📖 Phrase Match</a><a href="terms/broad-match.html" class="tag-link tag-term">📖 Broad Match</a><a href="terms/negative-keywords.html" class="tag-link tag-term">📖 Negative Keywords</a><a href="terms/dynamic-bidding.html" class="tag-link tag-term">📖 Dynamic Bidding</a></div></div><div class="flow-item completed" id="step-8"><div class="flow-number">8</div><div class="flow-item-title">Amazon After-Sales Service</div><div class="flow-item-desc">Master return/refund processes, customer service, review management, and after-sales metrics</div><a href="08-after-sales.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-performance.html" class="tag-link tag-faq">❓ Performance Metrics FAQ</a><a href="faq/faq-risk.html" class="tag-link tag-faq">❓ Risk Control & Appeal FAQ</a></div></div><div class="flow-item completed" id="step-9"><div class="flow-number">9</div><div class="flow-item-title">Account Settlement & Payouts</div><div class="flow-item-desc">Understand settlement cycles, fee deductions, fund transfers, and payment methods</div><a href="09-settlement.html" class="flow-item-link">View Details →</a><div class="flow-item-links"><a href="faq/faq-settlement.html" class="tag-link tag-faq">❓ Settlement Process FAQ</a><a href="faq/faq-finance.html" class="tag-link tag-faq">❓ Financial Management FAQ</a></div></div></div></div><div class="advanced-section"><div class="section-title"><span>Advanced Topics</span>
+ Essential for Improving Your Operations
+ </div><div class="grid-container"><div class="grid-item"><div class="grid-item-icon">📊</div><div class="grid-item-title">Data Analytics</div><div class="grid-item-desc">Sales data, traffic data, conversion data, business reports, brand analytics and more</div><a href="10-data-analysis.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-data.html" class="tag-link tag-faq">❓ Data Analytics FAQ</a><a href="faq/faq-tools.html" class="tag-link tag-faq">❓ Tools FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">🔍</div><div class="grid-item-title">Product Research</div><div class="grid-item-desc">Product selection methods, market analysis, competitor research, selection tools, product evaluation and more</div><a href="11-product-research.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-product-research.html" class="tag-link tag-faq">❓ Product Research FAQ</a><a href="terms/honghai.html" class="tag-link tag-term">📖 Red Ocean</a><a href="terms/baokuan.html" class="tag-link tag-term">📖 Best Seller</a></div></div><div class="grid-item"><div class="grid-item-icon">📦</div><div class="grid-item-title">Inventory Management</div><div class="grid-item-desc">Inventory status, management, metrics, operations, fees and more</div><a href="12-inventory-management.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-fba.html" class="tag-link tag-faq">❓ FBA Logistics FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">🛡️</div><div class="grid-item-title">Account Risk</div><div class="grid-item-desc">Account status, violation types, performance metrics, appeal process, account security and more</div><a href="13-account-risk.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-risk.html" class="tag-link tag-faq">❓ Risk Control & Appeal FAQ</a><a href="faq/faq-performance.html" class="tag-link tag-faq">❓ Performance Metrics FAQ</a><a href="terms/fenghao.html" class="tag-link tag-term">📖 Account Suspension</a><a href="terms/poa.html" class="tag-link tag-term">📖 POA</a><a href="terms/guanlian.html" class="tag-link tag-term">📖 Account Association</a></div></div><div class="grid-item"><div class="grid-item-icon">🎯</div><div class="grid-item-title">Advertising Strategy</div><div class="grid-item-desc">Campaign strategy, ad optimization, ad phases, budget strategy, ad performance and more</div><a href="14-ads-strategy.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-ads.html" class="tag-link tag-faq">❓ Advertising FAQ</a><a href="faq/faq-optimization.html" class="tag-link tag-faq">❓ Ad Optimization FAQ</a><a href="terms/acos.html" class="tag-link tag-term">📖 ACoS</a><a href="terms/roas.html" class="tag-link tag-term">📖 ROAS</a><a href="terms/qiliang.html" class="tag-link tag-term">📖 Traction</a></div></div><div class="grid-item"><div class="grid-item-icon">💰</div><div class="grid-item-title">Profit Model</div><div class="grid-item-desc">Cost structure, pricing strategy, profit metrics, profitability analysis, fee calculation and more</div><a href="15-profit-model.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-finance.html" class="tag-link tag-faq">❓ Financial Management FAQ</a><a href="faq/faq-settlement.html" class="tag-link tag-faq">❓ Settlement Process FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">📈</div><div class="grid-item-title">Product Lifecycle</div><div class="grid-item-desc">Introduction, growth, maturity, decline phases and strategies for each stage</div><a href="16-product-lifecycle.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="terms/qiliang.html" class="tag-link tag-term">📖 Traction</a><a href="terms/baokuan.html" class="tag-link tag-term">📖 Best Seller</a></div></div><div class="grid-item"><div class="grid-item-icon">⚙️</div><div class="grid-item-title">Operational Decisions</div><div class="grid-item-desc">Daily operations, promotions, market strategy, operational metrics, tools and more</div><a href="17-operational-decision.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-tools.html" class="tag-link tag-faq">❓ Tools FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">📚</div><div class="grid-item-title">Official Documentation Hub</div><div class="grid-item-desc">Amazon official resources, policy documents, help center, API tools and other core references</div><a href="18-official-docs-hub.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-policy.html" class="tag-link tag-faq">❓ Platform Policy FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">📊</div><div class="grid-item-title">Account Performance Risk</div><div class="grid-item-desc">Core performance metrics, account health, risk levels, alert systems, management strategies and more</div><a href="19-account-performance-risk.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-performance.html" class="tag-link tag-faq">❓ Performance Metrics FAQ</a><a href="faq/faq-risk.html" class="tag-link tag-faq">❓ Risk Control & Appeal FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">🗣️</div><div class="grid-item-title">Industry Slang</div><div class="grid-item-desc">Traffic conversion, PPC advertising, FBA logistics, risk control, payment collection and other industry terms</div><a href="20-industry-slang.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="terms/terms-index.html" class="tag-link tag-term">📖 All Terms</a><a href="terms/qiliang.html" class="tag-link tag-term">📖 Traction</a><a href="terms/baokuan.html" class="tag-link tag-term">📖 Best Seller</a><a href="terms/honghai.html" class="tag-link tag-term">📖 Red Ocean</a><a href="terms/fenghao.html" class="tag-link tag-term">📖 Account Suspension</a></div></div><div class="grid-item"><div class="grid-item-icon">🚀</div><div class="grid-item-title">Advanced Operations</div><div class="grid-item-desc">Refined operations, multi-account management, off-site promotion, brand operations, supply chain optimization and more</div><a href="21-advanced-operations.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-multi-platform.html" class="tag-link tag-faq">❓ Multi-Platform FAQ</a><a href="faq/faq-tiktok.html" class="tag-link tag-faq">❓ TikTok E-commerce FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">⚖️</div><div class="grid-item-title">Risk vs. Strategy Trade-offs</div><div class="grid-item-desc">Three operation modes, risk-reward analysis, aggressive tactics analysis, compliant alternatives, decision principles and more</div><a href="22-risk-strategy-tradeoff.html" class="grid-item-link">View →</a><div class="grid-item-links"><a href="faq/faq-risk.html" class="tag-link tag-faq">❓ Risk Control & Appeal FAQ</a><a href="faq/faq-compliance.html" class="tag-link tag-faq">❓ Compliance FAQ</a><a href="faq/faq-policy.html" class="tag-link tag-faq">❓ Platform Policy FAQ</a></div></div><div class="grid-item"><div class="grid-item-icon">❓</div><div class="grid-item-title">FAQ Center</div><div class="grid-item-desc">1000 questions covering the full Amazon operations chain: registration, brand, product selection, logistics, ads, performance, risk, settlement, compliance, data, TikTok comparison</div><a href="faq/faq-index.html" class="grid-item-link">View →</a></div><div class="grid-item"><div class="grid-item-icon">📖</div><div class="grid-item-title">Glossary Index</div><div class="grid-item-desc">24 core terms with detailed explanations, including definitions, formulas, examples, policy sources and related links</div><a href="terms/terms-index.html" class="grid-item-link">View →</a></div></div></div><div class="footer"><p>© 2026 Amazon Seller Knowledge Base | <a href="compliance.html">Certification & Compliance Guide</a></p></div></div></body></html>

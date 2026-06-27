@@ -364,9 +364,361 @@
                 height: 620px;
             }
         }
+    
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        .lang-switcher a {
+            display: inline-block;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .lang-switcher .lang-active {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+        }
+        .lang-switcher .lang-inactive {
+            background: white;
+            color: #333;
+        }
+        .lang-switcher .lang-inactive:hover {
+            background: #f0f0f0;
+        }
+
+        /* Global Search */
+        .search-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9998;
+            width: 320px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-box:focus {
+            box-shadow: 0 6px 25px rgba(255, 153, 0, 0.3);
+            transform: scale(1.02);
+        }
+        .search-box::placeholder {
+            color: #999;
+        }
+        .search-results {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+        .search-results.active {
+            display: block;
+        }
+        .search-result-item {
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        .search-result-item:hover {
+            background: #fff5e6;
+        }
+        .search-result-item .result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .search-result-item .result-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .search-result-item .result-type {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-right: 6px;
+        }
+        .search-result-item .result-type.page {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        .no-results {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+        .search-highlight {
+            background: #fff3cd;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        @media (max-width: 768px) {
+            .search-container {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .search-results {
+                position: static;
+                max-height: 300px;
+                margin-top: 10px;
+            }
+        }
     </style>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="亚马逊运营名词解释大全 - 来自amzrover.cn亚马逊运营知识库，提供专业的亚马逊运营概念解析，助力卖家从入门到精通。">
+    <meta name="keywords" content="亚马逊运营,Amazon卖家,跨境电商,亚马逊运营名词解释大全,amzrover">
+    <meta name="author" content="amzrover.cn">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.amzrover.cn/index.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.amzrover.cn/index.html">
+    <meta property="og:title" content="亚马逊运营名词解释大全">
+    <meta property="og:description" content="亚马逊运营名词解释大全 - 来自amzrover.cn亚马逊运营知识库，提供专业的亚马逊运营概念解析，助力卖家从入门到精通。">
+    <meta property="og:site_name" content="亚马逊运营知识库 - amzrover.cn">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="亚马逊运营名词解释大全">
+    <meta name="twitter:description" content="亚马逊运营名词解释大全 - 来自amzrover.cn亚马逊运营知识库，提供专业的亚马逊运营概念解析，助力卖家从入门到精通。">
+
+    <!-- GEO Meta Tags -->
+    <meta name="geo.region" content="CN">
+    <meta name="geo.placename" content="China">
+    <meta name="language" content="zh-CN">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Domain -->
+    <meta name="generator" content="amzrover.cn">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "亚马逊运营知识库",
+        "alternateName": "amzrover.cn - 亚马逊运营名词解释大全",
+        "url": "https://www.amzrover.cn",
+        "description": "从入门到精通，一站式学习亚马逊运营核心概念。涵盖认证合规、广告投放、站内运营、物流配送、数据分析等全流程。",
+        "keywords": "亚马逊运营,Amazon卖家,跨境电商,FBA,广告优化,选品,关键词,ACoS,ROAS",
+        "inLanguage": "zh-CN",
+        "publisher": {
+            "@type": "Organization",
+            "name": "amzrover.cn",
+            "url": "https://www.amzrover.cn"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "亚马逊运营流程",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "亚马逊店铺注册", "url": "https://www.amzrover.cn/01-account-registration.html"},
+            {"@type": "ListItem", "position": 2, "name": "注册万里汇", "url": "https://www.amzrover.cn/02-worldfirst.html"},
+            {"@type": "ListItem", "position": 3, "name": "上传Listing产品", "url": "https://www.amzrover.cn/03-listing-upload.html"},
+            {"@type": "ListItem", "position": 4, "name": "注册绑定品牌", "url": "https://www.amzrover.cn/04-brand-registry.html"},
+            {"@type": "ListItem", "position": 5, "name": "FBA发货", "url": "https://www.amzrover.cn/05-fba-shipping.html"},
+            {"@type": "ListItem", "position": 6, "name": "亚马逊仓库物流", "url": "https://www.amzrover.cn/06-logistics.html"},
+            {"@type": "ListItem", "position": 7, "name": "亚马逊广告", "url": "https://www.amzrover.cn/07-advertising.html"},
+            {"@type": "ListItem", "position": 8, "name": "亚马逊系统售后", "url": "https://www.amzrover.cn/08-after-sales.html"},
+            {"@type": "ListItem", "position": 9, "name": "亚马逊账号回款", "url": "https://www.amzrover.cn/09-settlement.html"}
+        ]
+    }
+    </script>
+    <script>
+        // 搜索索引数据
+        const searchIndex = [
+            // 页面链接
+            { title: "亚马逊店铺注册", url: "01-account-registration.html", type: "page", desc: "亚马逊账号注册、卖家计划选择、KYC认证等" },
+            { title: "万里汇注册绑定", url: "02-worldfirst.html", type: "page", desc: "万里汇WorldFirst注册、账户绑定、收款设置" },
+            { title: "上传Listing产品", url: "03-listing-upload.html", type: "page", desc: "产品上传、关键词策略、图片优化、Listing优化" },
+            { title: "注册绑定品牌", url: "04-brand-registry.html", type: "page", desc: "品牌备案、商标申请、A+页面" },
+            { title: "FBA发货流程", url: "05-fba-shipping.html", type: "page", desc: "FBA发货计划创建、头程物流、入库流程" },
+            { title: "亚马逊仓库物流", url: "06-logistics.html", type: "page", desc: "物流方式选择、清关流程、物流术语" },
+            { title: "亚马逊广告投放", url: "07-advertising.html", type: "page", desc: "广告投放策略、关键词出价、ACoS优化" },
+            { title: "亚马逊系统售后", url: "08-after-sales.html", type: "page", desc: "客服处理、退款退货、评价管理" },
+            { title: "亚马逊账号回款", url: "09-settlement.html", type: "page", desc: "回款周期、资金管理、利润计算" },
+            { title: "评论管理", url: "10-review-management.html", type: "page", desc: "评论管理、评分影响、差评处理" },
+
+            // 核心概念
+            { title: "FBA (Fulfillment by Amazon)", url: "terms/fba.html", type: "term", desc: "亚马逊物流配送服务，卖家将商品发送至亚马逊仓库，由亚马逊负责拣选、包装、配送和客服" },
+            { title: "FBM (Fulfillment by Merchant)", url: "terms/fbm.html", type: "term", desc: "自发货模式，卖家自行负责仓储、包装、配送和客服" },
+            { title: "SKU (Stock Keeping Unit)", url: "terms/sku.html", type: "term", desc: "库存量单位，用于标识和管理商品的唯一编码" },
+            { title: "ASIN (Amazon Standard Identification Number)", url: "terms/asin.html", type: "term", desc: "亚马逊标准识别号，用于标识亚马逊上的商品" },
+            { title: "ACoS (Advertising Cost of Sales)", url: "terms/acos.html", type: "term", desc: "广告销售成本比，计算广告支出占销售额的比例" },
+            { title: "ROAS (Return on Advertising Spend)", url: "terms/roas.html", type: "term", desc: "广告支出回报率，衡量广告效果的关键指标" },
+            { title: "KYC (Know Your Customer)", url: "terms/kyc.html", type: "term", desc: "了解你的客户，亚马逊对卖家身份的验证审核流程" },
+            { title: "CPC (Cost Per Click)", url: "terms/cpc.html", type: "term", desc: "每次点击成本，广告投放的核心计费方式" },
+            { title: "CTR (Click-Through Rate)", url: "terms/ctr.html", type: "term", desc: "点击率，衡量广告或Listing吸引力的指标" },
+            { title: "CVR (Conversion Rate)", url: "terms/cvr.html", type: "term", desc: "转化率，完成购买的访客占总访客的比例" },
+            { title: "Buy Box", url: "terms/buybox.html", type: "term", desc: "黄金购物车，获得Buy Box的卖家可获得大部分订单" },
+            { title: "Listing", url: "terms/listing.html", type: "term", desc: "产品Listing，包括标题、图片、描述等商品信息页面" },
+            { title: "变体 (Variation)", url: "terms/variation.html", type: "term", desc: "产品的不同规格，如颜色、尺寸等" },
+            { title: "关键词 (Keyword)", url: "terms/keyword.html", type: "term", desc: "用于搜索和匹配产品的关键词" },
+            { title: "长尾词 (Long-tail Keyword)", url: "terms/long-tail-keyword.html", type: "term", desc: "搜索量较小但更精准的关键词" },
+            { title: "广告组 (Ad Group)", url: "terms/ad-group.html", type: "term", desc: "广告活动中包含一组关键词和广告创意" },
+            { title: "否定关键词 (Negative Keyword)", url: "terms/negative-keyword.html", type: "term", desc: "阻止广告在特定搜索词下展示" },
+            { title: "竞价 (Bid)", url: "terms/bid.html", type: "term", desc: "广告主愿意为每次点击支付的最高金额" },
+            { title: "类目节点 (Browse Node)", url: "terms/browse-node.html", type: "term", desc: "亚马逊商品分类体系中的节点" },
+            { title: "头程 (Head Haul)", url: "terms/head-haul.html", type: "term", desc: "从国内发往亚马逊仓库的国际物流段" },
+
+            // 更多术语
+            { title: "专业卖家 (Professional Seller)", url: "terms/professional-seller.html", type: "term", desc: "按月付费的卖家计划，享受更多功能" },
+            { title: "个人卖家 (Individual Seller)", url: "terms/individual-seller.html", type: "term", desc: "按件付费的卖家计划，适合小规模销售" },
+            { title: "账号关联 (Account Association)", url: "terms/guanlian.html", type: "term", desc: "亚马逊检测到多个账号间的关联关系" },
+            { title: "二审 (Secondary Review)", url: "terms/second-review.html", type: "term", desc: "亚马逊对卖家账号的二次审核" },
+            { title: "全球开店 (Global Selling)", url: "terms/global-selling.html", type: "term", desc: "在多个亚马逊站点销售商品" },
+            { title: "品牌备案 (Brand Registry)", url: "terms/brand-registry.html", type: "term", desc: "亚马逊品牌注册计划，保护品牌权益" },
+            { title: "透明计划 (Transparency)", url: "terms/transparency.html", type: "term", desc: "亚马逊防伪计划，为产品提供追踪标签" },
+            { title: "Project Zero", url: "terms/project-zero.html", type: "term", desc: "亚马逊零计划，品牌方可自行删除假冒商品" },
+            { title: "A+页面 (A+ Content)", url: "terms/a-plus.html", type: "term", desc: "增强品牌内容，提升产品详情页转化率" },
+            { title: "索贿 (Suspected Bribery)", url: "terms/suohui.html", type: "term", desc: "违反亚马逊政策的行为，可能导致账号被封" },
+
+            // FAQ分类
+            { title: "注册相关FAQ", url: "faq/faq-registration.html", type: "faq", desc: "亚马逊账号注册常见问题解答" },
+            { title: "账号相关FAQ", url: "faq/faq-account.html", type: "faq", desc: "账号运营常见问题解答" },
+            { title: "财务相关FAQ", url: "faq/faq-settlement.html", type: "faq", desc: "回款和财务常见问题解答" },
+            { title: "物流相关FAQ", url: "faq/faq-logistics.html", type: "faq", desc: "物流配送常见问题解答" },
+            { title: "Listing优化FAQ", url: "faq/faq-listing.html", type: "faq", desc: "产品Listing优化常见问题" },
+            { title: "选品相关FAQ", url: "faq/faq-product-research.html", type: "faq", desc: "选品和市场调研常见问题" },
+            { title: "品牌相关FAQ", url: "faq/faq-brand.html", type: "faq", desc: "品牌备案和知识产权常见问题" },
+            { title: "FBA相关FAQ", url: "faq/faq-fba.html", type: "faq", desc: "FBA发货和仓储常见问题" },
+            { title: "广告相关FAQ", url: "faq/faq-ads.html", type: "faq", desc: "广告投放常见问题解答" },
+            { title: "售后相关FAQ", url: "faq/faq-after-sales.html", type: "faq", desc: "客服和售后常见问题" }
+        ];
+
+        // 搜索功能
+        function performSearch(query) {
+            const resultsContainer = document.getElementById('searchResults');
+            if (!query || query.length < 1) {
+                resultsContainer.classList.remove('active');
+                return;
+            }
+
+            query = query.toLowerCase().trim();
+            const results = searchIndex.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.desc.toLowerCase().includes(query);
+            });
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">未找到相关结果，请尝试其他关键词</div>';
+            } else {
+                resultsContainer.innerHTML = results.map(item => {
+                    const highlightedTitle = item.title.replace(
+                        new RegExp(`(${query})`, 'gi'),
+                        '<span class="search-highlight">$1</span>'
+                    );
+                    return `
+                        <div class="search-result-item" onclick="window.location.href='${item.url}'">
+                            <div class="result-title">
+                                <span class="result-type ${item.type}">${getTypeLabel(item.type)}</span>
+                                ${highlightedTitle}
+                            </div>
+                            <div class="result-desc">${item.desc}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            resultsContainer.classList.add('active');
+        }
+
+        function getTypeLabel(type) {
+            const labels = {
+                'page': '页面',
+                'term': '术语',
+                'faq': '问答'
+            };
+            return labels[type] || type;
+        }
+
+        // 事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const resultsContainer = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', function(e) {
+                performSearch(e.target.value);
+            });
+
+            searchInput.addEventListener('focus', function() {
+                if (this.value.length > 0) {
+                    resultsContainer.classList.add('active');
+                }
+            });
+
+            // 点击外部关闭搜索结果
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    resultsContainer.classList.remove('active');
+                }
+            });
+
+            // ESC键关闭搜索结果
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    resultsContainer.classList.remove('active');
+                    searchInput.blur();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
+    <div class="lang-switcher">
+        <a href="index.html" class="lang-active" title="中文">中文</a>
+        <a href="en/index.html" class="lang-inactive" title="English">EN</a>
+    </div>
+    
+    <!-- 搜索框 -->
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="🔍 搜索名词/页面/FAQ...">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>亚马逊运营名词解释大全</h1>

@@ -1,0 +1,24 @@
+Files modified: 71
+Remaining Chinese chars: 1979
+Remaining files: 61
+
+   93  06-logistics.html
+   81  09-settlement.html
+   77  terms\kyc.html
+   72  faq\faq-ip.html
+   68  terms\poa.html
+   54  terms\honghai.html
+   53  08-after-sales.html
+   53  faq\faq-brand.html
+   50  02-worldfirst.html
+   50  faq\faq-multi-platform.html
+   47  faq\faq-registration.html
+   47  terms\negative-keywords.html
+   44  01-account-registration.html
+   44  terms\sponsored-display.html
+   43  faq\faq-risk.html
+   42  04-brand-registry.html
+   42  05-fba-shipping.html
+   41  12-inventory-management.html
+   41  terms\baokuan.html
+   41  terms\ctr.html

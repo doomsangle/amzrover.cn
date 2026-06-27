@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.amzrover.cn/sitemap.xml
+
+# Language versions
+# Chinese (default): https://www.amzrover.cn/
+# English: https://www.amzrover.cn/en/
+
+# Crawl-delay
+Crawl-delay: 1

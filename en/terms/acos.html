@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ACoS - Advertising Cost of Sale | Amazon TermsGlossary</title><link rel="stylesheet" href="../assets/term-style.css"><!-- SEO Meta Tags --><meta name="description" content="ACoS - Advertising Cost of Sale | Amazon TermsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><meta name="keywords" content="Amazon operations,Amazon seller,cross-border e-commerce,ACoS - Advertising Cost of Sale | Amazon TermsGlossary,amzrover"><meta name="author" content="amzrover.cn"><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.amzrover.cn/en/terms/acos.html"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:url" content="https://www.amzrover.cn/en/terms/acos.html"><meta property="og:title" content="ACoS - Advertising Cost of Sale | Amazon TermsGlossary"><meta property="og:description" content="ACoS - Advertising Cost of Sale | Amazon TermsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><meta property="og:site_name" content="Amazon Seller Knowledge Base - amzrover.cn"><meta property="og:locale" content="en_US"><!-- Twitter Card --><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ACoS - Advertising Cost of Sale | Amazon TermsGlossary"><meta name="twitter:description" content="ACoS - Advertising Cost of Sale | Amazon TermsGlossary - From amzrover.cn Amazon Seller Knowledge Base - professional Amazon operations concepts to help sellers go from beginner to expert."><!-- GEO Meta Tags --><meta name="geo.region" content="CN"><meta name="geo.placename" content="China"><meta name="language" content="en"><meta name="distribution" content="global"><meta name="rating" content="general"><meta name="revisit-after" content="7 days"><!-- Domain --><meta name="generator" content="amzrover.cn"><style>
+ /* Language Switcher */
+.lang-switcher {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ z-index: 9999;
+ display: flex;
+ gap: 0;
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+ }
+.lang-switcher a {
+ display: inline-block;
+ padding: 8px 14px;
+ font-size: 13px;
+ font-weight: 600;
+ text-decoration: none;
+ transition: all 0.3s ease;
+ }
+.lang-switcher .lang-active {
+ background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+ color: white;
+ }
+.lang-switcher .lang-inactive {
+ background: white;
+ color: #333;
+ }
+.lang-switcher .lang-inactive:hover {
+ background: #f0f0f0;
+ }
+</style></head><body><div class="lang-switcher"><a href="../../terms/acos.html" class="lang-inactive" title="Chinese">中文</a><a href="terms/acos.html" class="lang-active" title="English">EN</a></div><div class="container"><div class="header"><h1>ACoS</h1><div class="subtitle">Advertising Cost of Sale - Advertising Cost of Sale</div><div class="nav-links"><a href="../07-advertising.html" class="nav-link">← Back to Category</a><a href="../index.html" class="nav-link">Back to Home</a></div></div><div class="content"><div class="section"><div class="section-title">nounDefinition</div><div class="section-content"><strong>ACoS(Advertising Cost of Sale)</strong>i.e.Advertising Cost of Sale, ismeasureAmazon Ad EfficiencyCore Metrics, expressAdvertisingexpenditureAdvertisingtoSalesratio.
+ </div></div><div class="section"><div class="section-title">calculateFormula</div><div class="section-content">
+ ACoS = (AdvertisingSpend / AdvertisingSales) × 100%
+ </div><div class="formula-box"><div class="formula-title">ACoScalculateFormula</div><div class="formula-content">ACoS = (Ad Spend / Ad Revenue) × 100%</div></div></div><div class="section"><div class="section-title">Metric Interpretation</div><div class="section-content"><strong>ACoSvalueMeaning: </strong><br><br>
+ - <strong>ACoS = 30%</strong>: earn $$1AdvertisingCost, to$3.33AdvertisingSales<br>
+ - <strong>ACoS = 50%</strong>: earn $$1AdvertisingCost, to$2AdvertisingSales<br>
+ - <strong>ACoSmorelowmoregood</strong>: meanAd Efficiencymorehigh, SpendsameAdvertisingCostcantomoremanySales<br><br><strong>differentphaseACoSGoal: </strong><br><br>
+ - <strong>Launch Phase: </strong>ACoSmayrelativelyhigh(50%-100%), becauseneedlargeAdvertisingenterobtainexposureandreview<br>
+ - <strong>Growth Phase: </strong>ACoSgraduallybelow(30%-50%), along withfromRanking Improvement, Ad Efficiencyimprove<br>
+ - <strong>Maturity Phase: </strong>ACoSstableatrelativelylowlevel(15%-30%), AdvertisingmainuseatmaintainrankingandProfit
+ </div></div><div class="section"><div class="section-title">ACoSchangetrend</div><div class="section-content"><canvas id="acosChart" width="600" height="300"></canvas><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script>
+ var ctx = document.getElementById('acosChart').getContext('2d');
+ var chart = new Chart(ctx, {
+ type: 'line',
+ data: {
+ labels: ['1week', '2week', '3week', '4week', '5week', '6week', '7week', '8week'],
+ datasets: [{
+ label: 'ACoS (%)',
+ data: [85, 78, 72, 65, 58, 52, 45, 42],
+ borderColor: '#667eea',
+ backgroundColor: 'rgba(102, 126, 234, 0.1)',
+ fill: true,
+ tension: 0.4
+ }, {
+ label: 'Conversion Rate (%)',
+ data: [1.5, 1.8, 2.1, 2.4, 2.8, 3.2, 3.5, 3.8],
+ borderColor: '#28a745',
+ backgroundColor: 'rgba(40, 167, 69, 0.1)',
+ fill: true,
+ tension: 0.4,
+ yAxisID: 'y1'
+ }]
+ },
+ options: {
+ responsive: true,
+ plugins: {
+ legend: {
+ position: 'top'
+ },
+ title: {
+ display: true,
+ text: 'New Product PromotionACoSandConversion Ratechangetrend'
+ }
+ },
+ scales: {
+ y: {
+ beginAtZero: false,
+ min: 20,
+ title: {
+ display: true,
+ text: 'ACoS (%)'
+ }
+ },
+ y1: {
+ position: 'right',
+ beginAtZero: false,
+ min: 0,
+ max: 5,
+ title: {
+ display: true,
+ text: 'Conversion Rate (%)'
+ }
+ }
+ }
+ }
+ });
+ </script><p style="font-size:12px; color:#888; margin-top:10px;">Note: along withproductpromotedeepenter, ACoSgraduallybelow, Conversion Rategraduallyenhance, thisisHealthyAd Optimizationtrend.</p></div></div><div class="example-box"><div class="example-title">Exampleanalysis</div><div class="example-content"><strong>Example: ACoScalculateandOptimization</strong><br><br>
+ a certainsellersproductSelling price$50, AdvertisingSpend$1,000, throughAdvertisingtoSalesfor$4,000.<br><br><strong>ACoScalculate: </strong><br>
+ ACoS = ($1,000 / $4,000) × 100% = 25%<br><br><strong>analysis: </strong><br>
+ theproductProfit Marginfor40%(cost$30), ACoS 25%meanAdvertisingtoProfitfor: <br>
+ AdvertisingProfit = AdvertisingSales × (Profit Margin - ACoS)<br>
+ = $4,000 × (40% - 25%) = $600<br><br><strong>Optimizationdirection: </strong><br>
+ ifwantHigh Profit, can: <br>
+ 1. reduceCPC(OptimizationKeywordandBid)<br>
+ 2. improveConversion Rate(OptimizationListing)<br>
+ 3. improveproductSelling price<br>
+ 4. decreasenoclick(addNegative Keywords)
+ </div></div><div class="policy-source"><div class="policy-source-title">Policy Sources</div><div class="policy-source-content">
+ Amazon officialAdvertisinghelpdocument: <a href="https://advertising.amazon.com/learn/en-us/measurement/ac-os" target="_blank">ACoS Definition & Calculation</a><br>
+ Amazon AdvertisingplatformprovidedetailedACoSdataandOptimizationRecommendations, helpsellersenhanceAd Efficiency.
+ </div></div><div class="tip-box"><div class="tip-title">Optimization Tips</div><div class="tip-content">
+ 1. <strong>KeywordOptimization: </strong>heavypointhighconversionKeyword, decreaselowconversionKeywordbudget<br>
+ 2. <strong>Bidding Strategies: </strong>useDynamic Bidding-reduce(Down Only), atConversion Ratelowtimeautomaticdecreases Bid<br>
+ 3. <strong>Negative Keywords: </strong>timelyaddnotrelatedSearch TermsforNegative Keywords<br>
+ 4. <strong>ListingOptimization: </strong>enhanceProduct Detail Pagequality, improveConversion Rate<br>
+ 5. <strong>Budget Pacing: </strong>willmoremanyBudget PacingtoACoSrelativelylowCampaign
+ </div></div><div class="related-terms"><div class="related-terms-title">Related Terms</div><div class="related-terms-list"><a href="roas.html" class="related-term">ROAS</a><a href="cpc.html" class="related-term">CPC</a><a href="ctr.html" class="related-term">CTR</a><a href="conversion-rate.html" class="related-term">Conversion Rate</a></div></div><div class="faq-link-box"><div class="faq-link-title">Related FAQ</div><div class="faq-link-list"><a href="../faq/faq-ads.html" class="faq-link">📣 AdvertisingFAQ</a><a href="../faq/faq-optimization.html" class="faq-link">📈 Ad OptimizationFAQ</a></div></div></div><div class="footer"><p>© 2026 Amazon Seller Knowledge Base | ACoSGlossary</p></div></div></body></html>
