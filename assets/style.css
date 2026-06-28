@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     background: white;
     border-radius: 16px;
@@ -243,7 +243,7 @@ table .cons {
 
 .fishbone-container {
     position: relative;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     height: 420px;
     z-index: 1;
@@ -513,7 +513,7 @@ table .cons {
 
 .detailed-flow-container {
     position: relative;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
