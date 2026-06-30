@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找服务 - 跨境电商服务商推荐</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; }
+        .nav-tabs { display: flex; background: white; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .nav-tab { flex: 1; padding: 15px; text-align: center; cursor: pointer; font-size: 15px; font-weight: 500; color: #666; transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-tab:hover { color: #FF6B00; }
+        .nav-tab.active { color: #FF6B00; border-bottom-color: #FF6B00; background: #FFF8E1; }
+        .category-bar { display: flex; gap: 10px; padding: 15px 20px; background: white; flex-wrap: wrap; border-bottom: 1px solid #eee; }
+        .category-tag { padding: 6px 14px; background: #f5f5f5; border-radius: 20px; font-size: 13px; cursor: pointer; color: #666; transition: all 0.2s; }
+        .category-tag:hover { background: #FFF3E0; color: #FF9900; }
+        .category-tag.active { background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%); color: white; }
+        .section-title { padding: 15px 20px; font-size: 14px; font-weight: 600; color: #333; background: white; }
+        .providers-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; padding: 15px 20px; background: #f5f7fa; }
+        .provider-card { background: white; border-radius: 8px; overflow: hidden; transition: all 0.3s; cursor: pointer; border: 1px solid #eee; }
+        .provider-card:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-color: #FF9900; }
+        .card-header { height: 100px; display: flex; align-items: center; justify-content: center; font-size: 40px; position: relative; }
+        .card-header .price-badge { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,0.9); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; color: #FF6B00; }
+        .card-body { padding: 12px; }
+        .provider-name { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .provider-desc { font-size: 11px; color: #999; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .provider-tags { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+        .provider-tag { padding: 2px 6px; background: #f0f0f0; border-radius: 3px; font-size: 10px; color: #888; }
+        .provider-tag.hot { background: #FFF3E0; color: #FF9900; }
+        .contact-btn { margin-top: 10px; display: block; width: 100%; padding: 7px; text-align: center; background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%); color: white; font-size: 12px; font-weight: 600; border-radius: 4px; text-decoration: none; }
+        .contact-btn:hover { opacity: 0.9; }
+        @media (max-width: 1200px) { .providers-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 900px) { .providers-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .providers-grid { grid-template-columns: repeat(2, 1fr); } }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .category-tabs { display: flex; gap: 8px; padding: 12px 20px; background: white; overflow-x: auto; }
+        .category-tab-item { flex-shrink: 0; padding: 5px 12px; background: #f8f9fa; border-radius: 15px; font-size: 12px; cursor: pointer; color: #666; }
+        .category-tab-item.active { background: #FF9900; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('service')">找服务</div>
+            <div class="nav-tab" onclick="switchTab('logistics')">找物流</div>
+            <div class="nav-tab" onclick="switchTab('warehouse')">找海外仓</div>
+            <div class="nav-tab" onclick="switchTab('store')">全球开店</div>
+        </div>
+        
+        <div class="category-bar">
+            <div class="category-tag active" data-cat="all">全部</div>
+            <div class="category-tag" data-cat="ip">知识产权</div>
+            <div class="category-tag" data-cat="tax">税务合规</div>
+            <div class="category-tag" data-cat="tools">工具软件</div>
+            <div class="category-tag" data-cat="appeal">申诉和解</div>
+            <div class="category-tag" data-cat="promotion">站内外推广</div>
+            <div class="category-tag" data-cat="review">测评服务</div>
+            <div class="category-tag" data-cat="payment">收款支付</div>
+            <div class="category-tag" data-cat="logistics">物流仓储</div>
+            <div class="category-tag" data-cat="source">货源网站</div>
+            <div class="category-tag" data-cat="cert">检测认证</div>
+            <div class="category-tag" data-cat="insurance">跨境保险</div>
+        </div>
+
+        <div class="section-title" id="sectionTitle">全部服务商</div>
+        
+        <div class="providers-grid" id="grid"></div>
+    </div>
+
+    <script>
+    var providers = [
+        {"name":"积特知识产权","icon":"🔍","color":"#4A90D9","price":"$660起","desc":"美国商标注册/转让、商标续展、不侵权证明等一站式服务","category":"ip","tags":["商标注册","美国R标"]},
+        {"name":"可鹰企服","icon":"🏢","color":"#E53935","price":"$999起","desc":"海外商标注册、专利申请、版权登记、欧盟商标注册等服务","category":"ip","tags":["海外商标","专利申请"]},
+        {"name":"港勤知识产权","icon":"🇭🇰","color":"#FF6B00","price":"$660起","desc":"香港公司+独立地址、商标注册、公司注册等服务","category":"ip","tags":["香港公司","商标注册"]},
+        {"name":"方信企业管理","icon":"📋","color":"#43A047","price":"$3888","desc":"美国R标注册、商标转让、公司注册等一站式服务","category":"ip","tags":["美国R标","公司注册"]},
+        {"name":"柏斯特知识产权","icon":"⚖️","color":"#8E24AA","price":"优惠中","desc":"商标、版权、专利全方位服务，效率高服务好","category":"ip","tags":["商标专利","版权"]},
+        {"name":"海象跨境","icon":"🌊","color":"#039BE5","price":"$1999","desc":"欧洲商标注册、VAT、欧代、合规全方案","category":"ip","tags":["欧洲商标","VAT"]},
+        {"name":"超象海外商标","icon":"🚀","color":"#00ACC1","price":"$1999起","desc":"美国商标注册+转让、多国商标注册、全球商标合规","category":"ip","tags":["海外商标","全球合规"]},
+        {"name":"智观知识产权","icon":"💡","color":"#7E57C2","price":"$3188","desc":"商标一口价全包，美国商标注册服务","category":"ip","tags":["美国商标","全包服务"]},
+        {"name":"助商汇知识产权","icon":"📜","color":"#FF7043","price":"优惠中","desc":"商标专利服务，6年跨境IP经验","category":"ip","tags":["商标专利","6年经验"]},
+        {"name":"博知华企业咨询","icon":"🏢","color":"#546E7A","price":"咨询价","desc":"知识产权·工商财税·香港公司一站式服务","category":"ip","tags":["工商财税","香港公司"]},
+        {"name":"ACE艾思国际","icon":"💼","color":"#1E88E5","price":"咨询价","desc":"持牌事务所，专业税务合规服务","category":"tax","tags":["税务合规","持牌"]},
+        {"name":"跨规盈","icon":"✅","color":"#388E3C","price":"咨询价","desc":"欧洲本土公司，税号注册税务申报","category":"tax","tags":["欧洲VAT","税务申报"]},
+        {"name":"旺辰合规跨境","icon":"📊","color":"#F57C00","price":"咨询价","desc":"跨境一站式服务，税务合规无忧","category":"tax","tags":["税务合规","一站式"]},
+        {"name":"福州麦仓","icon":"🌾","color":"#7CB342","price":"咨询价","desc":"无票核定一站式解决方案","category":"tax","tags":["无票核定","税务"]},
+        {"name":"VAT Global","icon":"🇪🇺","color":"#1565C0","price":"咨询价","desc":"欧洲VAT注册申报服务","category":"tax","tags":["欧洲VAT","注册"]},
+        {"name":"卖家精灵","icon":"📊","color":"#FF9900","price":"免费试用","desc":"亚马逊选品+运营一站式工具","category":"tools","tags":["选品软件","数据分析"]},
+        {"name":"紫鸟浏览器","icon":"🦅","color":"#1976D2","price":"¥49起","desc":"账号安全管理系统，防止账号关联","category":"tools","tags":["指纹浏览器","账号安全"]},
+        {"name":"Helium 10","icon":"🚀","color":"#7B1FA2","price":"$97起","desc":"亚马逊全能型工具套件","category":"tools","tags":["选品软件","关键词"]},
+        {"name":"Jungle Scout","icon":"🌴","color":"#4CAF50","price":"$49起","desc":"亚马逊选品神器，精准预估销量","category":"tools","tags":["选品软件","销量预估"]},
+        {"name":"Keepa","icon":"📈","color":"#FF5722","price":"免费","desc":"亚马逊价格历史追踪工具","category":"tools","tags":["价格追踪","历史数据"]},
+        {"name":"申诉直评服务","icon":"🔄","color":"#D32F2F","price":"咨询价","desc":"全类型申诉质保服务","category":"appeal","tags":["账号申诉","质保"]},
+        {"name":"亚马逊卖家论坛","icon":"👥","color":"#2196F3","price":"免费","desc":"官方申诉指导论坛","category":"appeal","tags":["官方渠道","申诉"]},
+        {"name":"老虎站外推广","icon":"🐯","color":"#FF8F00","price":"咨询价","desc":"专业站外推广服务商","category":"promotion","tags":["站外推广","Deal站"]},
+        {"name":"Slickdeals","icon":"💰","color":"#4CAF50","price":"免费发布","desc":"美国最大Deal社区","category":"promotion","tags":["美国Deal","流量"]},
+        {"name":"MyDealz","icon":"🛒","color":"#9C27B0","price":"免费发布","desc":"德国Deal平台","category":"promotion","tags":["欧洲Deal","折扣"]},
+        {"name":"评徕斯专业测评","icon":"⭐","color":"#FF6B00","price":"咨询价","desc":"美国本土精细化社群运营","category":"review","tags":["真实测评","本土买家"]},
+        {"name":"Az定制vine","icon":"🍇","color":"#8BC34A","price":"咨询价","desc":"百分百真人测评，退款本金全额赔付","category":"review","tags":["Vine测评","质保"]},
+        {"name":"优禾测评","icon":"🌾","color":"#FFB300","price":"咨询价","desc":"助力新品冷启到爆款稳定","category":"review","tags":["新品测评","冷启动"]},
+        {"name":"高端测评","icon":"👑","color":"#9C27B0","price":"咨询价","desc":"高端买家群体，精准测评服务","category":"review","tags":["高端测评","精准"],"detail":"review-high-end.html"},
+        {"name":"深核破界","icon":"⚡","color":"#00ACC1","price":"咨询价","desc":"深度测评突破流量瓶颈","category":"review","tags":["深度测评","流量突破"],"detail":"review-deep-core.html"},
+        {"name":"Payoneer","icon":"💳","color":"#00BCD4","price":"免费开户","desc":"跨境收款专家","category":"payment","tags":["跨境收款","多平台"]},
+        {"name":"PingPong","icon":"🏓","color":"#E91E63","price":"免费开户","desc":"跨境收款平台，低费率","category":"payment","tags":["跨境收款","低费率"]},
+        {"name":"WorldFirst","icon":"🌍","color":"#4CAF50","price":"免费开户","desc":"蚂蚁集团旗下跨境收款","category":"payment","tags":["跨境收款","蚂蚁"]},
+        {"name":"Airwallex","icon":"☁️","color":"#2196F3","price":"免费开户","desc":"全球金融科技公司","category":"payment","tags":["跨境支付","换汇"]},
+        {"name":"Stripe","icon":"🌈","color":"#673AB7","price":"免费开户","desc":"全球支付解决方案","category":"payment","tags":["独立站收款","订阅"]},
+        {"name":"DHL","icon":"📦","color":"#FF6B00","price":"询价","desc":"全球物流巨头","category":"logistics","tags":["国际快递","全球"]},
+        {"name":"FedEx","icon":"✈️","color":"#FF6B00","price":"询价","desc":"联邦快递，时效快","category":"logistics","tags":["国际快递","时效快"]},
+        {"name":"UPS","icon":"🚚","color":"#333","price":"询价","desc":"联合包裹服务","category":"logistics","tags":["国际快递","货运"]},
+        {"name":"ShipBob","icon":"🚢","color":"#03A9F4","price":"询价","desc":"美国第三方物流","category":"logistics","tags":["海外仓","3PL"]},
+        {"name":"Flexport","icon":"🛳️","color":"#00BCD4","price":"询价","desc":"数字化货运代理","category":"logistics","tags":["货运代理","数字化"]},
+        {"name":"万邑通","icon":"🏠","color":"#FF6B00","price":"询价","desc":"一站式跨境物流解决方案，北美/欧洲/日本海外仓","category":"warehouse","tags":["海外仓","多站点"]},
+        {"name":"出口易","icon":"📦","color":"#4CAF50","price":"询价","desc":"亚马逊FBA头程+海外仓服务","category":"warehouse","tags":["海外仓","FBA头程"]},
+        {"name":"递四方","icon":"🌍","color":"#2196F3","price":"询价","desc":"全球跨境物流解决方案，海外仓布局全球","category":"warehouse","tags":["海外仓","全球"]},
+        {"name":"谷仓海外仓","icon":"🏭","color":"#FF9800","price":"询价","desc":"专业海外仓服务，美国/欧洲/澳洲","category":"warehouse","tags":["海外仓","多区域"]},
+        {"name":"心怡科技","icon":"💻","color":"#9C27B0","price":"询价","desc":"智能仓储物流服务","category":"warehouse","tags":["海外仓","智能化"]},
+        {"name":"大健云仓","icon":"🏠","color":"#FF9800","price":"询价","desc":"大件商品B2B交易平台","category":"source","tags":["货源网站","大件"]},
+        {"name":"1688","icon":"🏭","color":"#FF6B00","price":"批发价","desc":"阿里巴巴批发平台","category":"source","tags":["货源网站","批发"]},
+        {"name":"阿里巴巴国际站","icon":"🌐","color":"#FF6B00","price":"询价","desc":"全球B2B贸易平台","category":"source","tags":["B2B平台","采购"]},
+        {"name":"Global Sources","icon":"🌏","color":"#1565C0","price":"询价","desc":"环球资源","category":"source","tags":["B2B平台","供应商"]},
+        {"name":"Made-in-China","icon":"🇨🇳","color":"#E53935","price":"询价","desc":"中国制造网","category":"source","tags":["B2B平台","认证"]},
+        {"name":"SGS","icon":"🔬","color":"#FF6B00","price":"询价","desc":"全球检测认证机构","category":"cert","tags":["检测认证","CE"]},
+        {"name":"TUV","icon":"✓","color":"#1565C0","price":"询价","desc":"德国认证机构","category":"cert","tags":["检测认证","德国"]},
+        {"name":"Intertek","icon":"🧪","color":"#4CAF50","price":"询价","desc":"天祥集团","category":"cert","tags":["检测认证","产品测试"]},
+        {"name":"UL","icon":"⚡","color":"#FF5722","price":"询价","desc":"美国安全检测实验室","category":"cert","tags":["检测认证","UL"]},
+        {"name":"中国人保","icon":"🛡️","color":"#E53935","price":"¥850起","desc":"亚马逊商业责任险","category":"insurance","tags":["商业险","责任险"]},
+        {"name":"平安保险","icon":"🛡️","color":"#FF6B00","price":"咨询价","desc":"跨境电商责任险","category":"insurance","tags":["商业险","物流险"]},
+        {"name":"豆沙包","icon":"🥟","color":"#FFB74D","price":"¥680起","desc":"亚马逊商业责任险，专业平台","category":"insurance","tags":["商业险","平台险"]},
+        {"name":"亚马逊全球开店","icon":"🌐","color":"#FF6B00","price":"免费","desc":"官方开店入口，北美/欧洲/日本站点","category":"store","tags":["官方渠道","多站点"]},
+        {"name":"eBay开店","icon":"🏪","color":"#E53935","price":"免费","desc":"eBay全球开店服务","category":"store","tags":["eBay","全球"]},
+        {"name":"Shopee开店","icon":"🛒","color":"#4CAF50","price":"免费","desc":"东南亚电商平台开店","category":"store","tags":["Shopee","东南亚"]},
+        {"name":"TikTok Shop","icon":"🎵","color":"#000","price":"免费","desc":"TikTok小店开通服务","category":"store","tags":["TikTok","短视频"]},
+        {"name":"速卖通开店","icon":"🚀","color":"#FF6B00","price":"免费","desc":"阿里巴巴速卖通入驻","category":"store","tags":["速卖通","阿里"]},
+        {"name":"Lazada开店","icon":"🛍️","color":"#E91E63","price":"免费","desc":"东南亚电商平台入驻","category":"store","tags":["Lazada","东南亚"]}
+    ];
+
+    function getCatName(c) {
+        var names = {"all":"全部服务商","ip":"知识产权","tax":"税务合规","tools":"工具软件","appeal":"申诉和解","promotion":"站内外推广","review":"测评服务","payment":"收款支付","logistics":"国际快递","warehouse":"海外仓服务","source":"货源网站","cert":"检测认证","insurance":"跨境保险","store":"全球开店"};
+        return names[c] || c;
+    }
+
+    function render(cat) {
+        var grid = document.getElementById('grid');
+        var title = document.getElementById('sectionTitle');
+        var list = cat === 'all' ? providers : providers.filter(function(p){ return p.category === cat; });
+        
+        title.textContent = getCatName(cat);
+        
+        grid.innerHTML = list.map(function(p){
+            var link = p.detail || p.url || '#';
+            var target = p.detail ? '_self' : '_blank';
+            return '<div class="provider-card" onclick="window.open(\''+link+'\',\''+target+'\')"><div class="card-header" style="background:linear-gradient(135deg,'+p.color+' 0%,rgba('+hexToRgb(p.color)+',0.6) 100%)">'+p.icon+'<div class="price-badge">'+p.price+'</div></div><div class="card-body"><div class="provider-name">'+p.name+'</div><div class="provider-desc">'+p.desc+'</div><div class="provider-tags">'+p.tags.map(function(t){ return '<span class="provider-tag">'+t+'</span>'; }).join('')+'</div><a href="'+link+'" target="'+target+'" class="contact-btn">立即咨询</a></div></div>';
+        }).join('');
+    }
+
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? parseInt(result[1], 16)+','+parseInt(result[2], 16)+','+parseInt(result[3], 16) : '255,107,0';
+    }
+
+    function switchTab(tab) {
+        document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+        event.target.classList.add('active');
+        if(tab === 'service') render('all');
+        else if(tab === 'logistics') render('logistics');
+        else if(tab === 'warehouse') render('warehouse');
+        else if(tab === 'store') render('store');
+    }
+
+    document.querySelectorAll('.category-tag').forEach(function(tag) {
+        tag.addEventListener('click', function() {
+            document.querySelectorAll('.category-tag').forEach(function(t){ t.classList.remove('active'); });
+            this.classList.add('active');
+            render(this.dataset.cat);
+        });
+    });
+
+    render('all');
+    </script>
+</body>
+</html>

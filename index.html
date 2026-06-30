@@ -152,6 +152,88 @@
             margin: 0 auto;
         }
 
+        .tools-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: white;
+            border-bottom: 2px solid #eee;
+            position: relative;
+            z-index: 100;
+        }
+        .tools-navbar-left {
+            display: flex;
+            gap: 20px;
+        }
+        .tools-dropdown {
+            position: relative;
+        }
+        .dropdown-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .tools-dropdown:hover .dropdown-title {
+            background: #FFF3E0;
+            color: #FF9900;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 10px;
+            min-width: 180px;
+            z-index: 200;
+        }
+        .tools-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .dropdown-content a:hover {
+            background: #FFF3E0;
+            color: #FF9900;
+        }
+        .tools-navbar-right {
+            display: flex;
+            gap: 5px;
+        }
+        .nav-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(255, 153, 0, 0.3);
+        }
+        @media (max-width: 900px) {
+            .tools-navbar-left { display: none; }
+            .tools-navbar { justify-content: center; }
+        }
+
         .header {
             text-align: center;
             color: white;
@@ -437,6 +519,145 @@
         .footer a {
             color: white;
             text-decoration: underline;
+        }
+
+        /* ===== 头条新闻模块 ===== */
+        .news-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .news-title .news-icon {
+            color: #FF6B6B;
+            font-size: 22px;
+        }
+        .news-title .news-badge {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .news-title .news-time {
+            font-size: 12px;
+            color: #999;
+            font-weight: normal;
+            margin-left: auto;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+        .news-item:hover {
+            background: #fff5e6;
+            border-color: #FF9900;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(255, 153, 0, 0.1);
+        }
+        .news-item .news-number {
+            width: 22px;
+            height: 22px;
+            background: #e0e0e0;
+            color: #666;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .news-item:nth-child(1) .news-number,
+        .news-item:nth-child(2) .news-number {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+        }
+        .news-item:nth-child(3) .news-number,
+        .news-item:nth-child(4) .news-number {
+            background: linear-gradient(135deg, #FFB86C 0%, #FFA726 100%);
+            color: white;
+        }
+        .news-item:nth-child(5) .news-number,
+        .news-item:nth-child(6) .news-number {
+            background: linear-gradient(135deg, #FFE082 0%, #FFD54F 100%);
+            color: #333;
+        }
+        .news-item .news-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .news-item .news-link {
+            font-size: 13px;
+            color: #333;
+            text-decoration: none;
+            line-height: 1.5;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+        .news-item .news-link:hover {
+            color: #FF6B00;
+        }
+        .news-item .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+            font-size: 10px;
+        }
+        .news-item .news-source {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .news-source.platform { background: #E3F2FD; color: #1565C0; }
+        .news-source.compliance { background: #FFEBEE; color: #C62828; }
+        .news-source.logistics { background: #E8F5E9; color: #2E7D32; }
+        .news-source.payment { background: #F3E5F5; color: #7B1FA2; }
+        .news-source.community { background: #FFF3E0; color: #E65100; }
+        .news-source.news { background: #E0F7FA; color: #006064; }
+        .news-item .news-time {
+            color: #999;
+        }
+        .news-error {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 13px;
+        }
+        .news-loading {
+            text-align: center;
+            padding: 20px;
+            color: #FF9900;
+            font-size: 13px;
         }
 
         @media (max-width: 600px) {
@@ -839,7 +1060,49 @@
             });
 
             window.addEventListener('resize', resizeFishbone);
+
+            loadNews();
         });
+
+        function loadNews() {
+            const newsList = document.getElementById('newsList');
+            const newsUpdateTime = document.getElementById('newsUpdateTime');
+
+            fetch('/news')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        newsList.innerHTML = '<li class="news-error">获取新闻失败，请稍后重试</li>';
+                        return;
+                    }
+
+                    const updateDate = new Date(data.lastUpdate);
+                    newsUpdateTime.textContent = updateDate.toLocaleString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+
+                    newsList.innerHTML = data.news.map((item, index) => `
+                        <li class="news-item">
+                            <div class="news-number">${index + 1}</div>
+                            <div class="news-content">
+                                <a href="${item.url}" target="_blank" class="news-link">${item.title}</a>
+                                <div class="news-meta">
+                                    <span class="news-source ${item.type}">${item.source}</span>
+                                    <span class="news-time">${item.time}</span>
+                                </div>
+                            </div>
+                        </li>
+                    `).join('');
+                })
+                .catch(error => {
+                    newsList.innerHTML = '<li class="news-error">网络错误，无法加载新闻</li>';
+                    console.error('News load error:', error);
+                });
+        }
     </script>
 </head>
 <body>
@@ -855,10 +1118,66 @@
     </div>
 
     <div class="container">
+        <div class="tools-navbar">
+            <div class="tools-navbar-left">
+                <div class="tools-dropdown">
+                    <span class="dropdown-title">热门工具 ▾</span>
+                    <div class="dropdown-content">
+                        <a href="15-profit-model.html" target="_blank">💰 利润计算工具</a>
+                        <a href="terms/keywords.html" target="_blank">🔑 关键词挖掘工具</a>
+                        <a href="terms/pricing.html" target="_blank">📊 价格监控工具</a>
+                        <a href="15-profit-model.html#fba" target="_blank">📦 FBA费用计算</a>
+                        <a href="terms/amazon-calculator.html" target="_blank">🧮 亚马逊计算器</a>
+                        <a href="terms/emoji.html" target="_blank">😊 Emoji表情大全</a>
+                    </div>
+                </div>
+                <div class="tools-dropdown">
+                    <span class="dropdown-title">最新工具 ▾</span>
+                    <div class="dropdown-content">
+                        <a href="terms/a10.html" target="_blank">🧠 A10算法分析</a>
+                        <a href="terms/gpt.html" target="_blank">🤖 AI智能助手</a>
+                        <a href="terms/upc.html" target="_blank">🏷️ UPC在线生成</a>
+                        <a href="terms/cost-calculator.html" target="_blank">📈 成本计算器</a>
+                        <a href="terms/amazon-sales-rank.html" target="_blank">📊 亚马逊销售排名</a>
+                        <a href="terms/deepseller.html" target="_blank">🔍 DeepSeller工具</a>
+                    </div>
+                </div>
+                <div class="tools-dropdown">
+                    <span class="dropdown-title">推荐工具 ▾</span>
+                    <div class="dropdown-content">
+                        <a href="https://www.sellersprite.com/" target="_blank">🐦 卖家精灵</a>
+                        <a href="https://www.helium10.com/" target="_blank">🚀 Helium 10</a>
+                        <a href="https://www.junglescout.com/" target="_blank">🌴 Jungle Scout</a>
+                        <a href="https://keepa.com/" target="_blank">📈 Keepa价格追踪</a>
+                        <a href="terms/chatgpt.html" target="_blank">💬 ChatGPT指令大全</a>
+                        <a href="terms/copyright.html" target="_blank">📜 侵权检测工具</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tools-navbar-right">
+                <a href="23-service-providers.html" class="nav-btn">找服务</a>
+                <a href="23-service-providers.html#logistics" class="nav-btn">找物流</a>
+                <a href="23-service-providers.html#warehouse" class="nav-btn">找海外仓</a>
+                <a href="23-service-providers.html#store" class="nav-btn">全球开店</a>
+            </div>
+        </div>
+
         <div class="header">
             <h1>亚马逊运营名词解释大全</h1>
             <p>从入门到精通，一站式学习亚马逊运营核心概念</p>
             <div class="subtitle">涵盖认证合规、广告投放、站内运营、物流配送、数据分析等全流程</div>
+        </div>
+
+        <div class="news-section">
+            <div class="news-title">
+                <span class="news-icon">📰</span>
+                跨境电商头条新闻
+                <span class="news-badge">每日更新</span>
+                <span class="news-time" id="newsUpdateTime">加载中...</span>
+            </div>
+            <ul class="news-list" id="newsList">
+                <li class="news-loading">正在获取最新跨境电商资讯...</li>
+            </ul>
         </div>
 
         <div class="fishbone-section">
@@ -1158,6 +1477,17 @@
                     <div class="grid-item-title">FAQ问答中心</div>
                     <div class="grid-item-desc">亚马逊运营全链路1000问，覆盖注册/品牌/选品/物流/广告/绩效风控/回款/合规/数据/TikTok对比</div>
                     <a href="faq/faq-index.html" class="grid-item-link">查看 →</a>
+                </div>
+
+                <div class="grid-item">
+                    <div class="grid-item-icon">🛒</div>
+                    <div class="grid-item-title">服务商推荐</div>
+                    <div class="grid-item-desc">精选35+优质服务商，涵盖知识产权、税务合规、工具软件、物流仓储、收款支付等一站式服务</div>
+                    <a href="23-service-providers.html" class="grid-item-link">查看 →</a>
+                    <div class="grid-item-links">
+                        <a href="https://www.sellersprite.com/" target="_blank" class="tag-link">🔗 卖家精灵</a>
+                        <a href="https://www.payoneer.com/" target="_blank" class="tag-link">🔗 Payoneer</a>
+                    </div>
                 </div>
 
                 <div class="grid-item">

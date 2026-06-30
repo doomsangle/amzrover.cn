@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cross-border E-commerce Service Provider Directory - Intellectual Property, Tax Compliance, Software Tools, Logistics, Payment Solutions">
+    <meta name="keywords" content="cross-border e-commerce services, Amazon service providers, intellectual property, tax compliance, product research tools, logistics services, payment tools">
+    <title>Cross-border E-commerce Service Providers | Amazon Seller Services Directory</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="canonical" href="https://amzrover.cn/en/23-service-providers.html">
+    <style>
+        .service-header {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF9900 100%);
+            padding: 30px;
+            text-align: center;
+        }
+        .service-header h1 {
+            color: white;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+        }
+        .service-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px;
+            background: #f8f9fa;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+        }
+        .category-tag {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #666;
+        }
+        .category-tag:hover {
+            border-color: #FF9900;
+            color: #FF9900;
+        }
+        .category-tag.active {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            border-color: #FF9900;
+            color: white;
+        }
+        
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .provider-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .provider-card:hover {
+            border-color: #FF9900;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.15);
+        }
+        .provider-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .provider-card:hover::before {
+            opacity: 1;
+        }
+        
+        .provider-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .provider-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .provider-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .provider-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .provider-tag {
+            padding: 3px 10px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            font-size: 11px;
+            color: #888;
+        }
+        .provider-tag.primary {
+            background: #FFF3E0;
+            color: #FF9900;
+        }
+        
+        .provider-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .provider-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #FF9900 0%, #FF6B00 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .provider-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+        }
+        .provider-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #FF9900;
+            font-size: 13px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFF3E0 100%);
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF9900;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .section-title {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title span {
+            color: #FF9900;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        @media (max-width: 900px) {
+            .providers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .providers-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-nav {
+                gap: 6px;
+            }
+            .category-tag {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+        
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .language-switch a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 5px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        .language-switch a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Cross-border E-commerce Service Providers",
+        "description": "Premium service providers for cross-border e-commerce, covering intellectual property, tax compliance, software tools, logistics and more",
+        "numberOfItems": 35
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="service-header" style="position: relative;">
+            <div class="language-switch">
+                <a href="../23-service-providers.html">中文版</a>
+            </div>
+            <h1>🛒 Cross-border E-commerce Service Providers</h1>
+            <p>Premium service providers directory | Intellectual Property · Tax Compliance · Software Tools · Logistics</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Service Providers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">11</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1.8M+</div>
+                <div class="stat-label">Sellers Served</div>
+            </div>
+        </div>
+        
+        <div class="category-nav">
+            <div class="category-tag active" data-category="all">All</div>
+            <div class="category-tag" data-category="ip">Intellectual Property</div>
+            <div class="category-tag" data-category="tax">Tax Compliance</div>
+            <div class="category-tag" data-category="tools">Software Tools</div>
+            <div class="category-tag" data-category="appeal">Appeal Services</div>
+            <div class="category-tag" data-category="promotion">Marketing & Promotion</div>
+            <div class="category-tag" data-category="payment">Payment Solutions</div>
+            <div class="category-tag" data-category="logistics">Logistics & Warehousing</div>
+            <div class="category-tag" data-category="source">Supplier Platforms</div>
+            <div class="category-tag" data-category="cert">Testing & Certification</div>
+            <div class="category-tag" data-category="insurance">Business Insurance</div>
+        </div>
+        
+        <div class="section-title">
+            <span>📋</span> Service Provider List
+            <span style="font-size: 12px; color: #999; margin-left: auto;" id="providerCount">Showing 35 providers</span>
+        </div>
+        
+        <div class="providers-grid" id="providersGrid">
+            <!-- Cards will be dynamically generated -->
+        </div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <div style="font-size: 48px; margin-bottom: 15px;">🔍</div>
+            <div>No providers in this category</div>
+        </div>
+    </div>
+    
+    <script>
+        const providers = [
+            // Software Tools (tools)
+            {
+                name: 'SellerSprite',
+                icon: '📊',
+                desc: 'Amazon product research & operations tool, trusted by 1.8M sellers, data-driven product decisions',
+                category: 'tools',
+                tags: ['Product Research', 'Data Analysis'],
+                url: 'https://www.sellersprite.com/',
+                rating: 4.9
+            },
+            {
+                name: 'Ziniao Browser',
+                icon: '🦅',
+                desc: 'Account security management system, unique security container for each account, prevents account linking',
+                category: 'tools',
+                tags: ['Fingerprint Browser', 'Account Security'],
+                url: 'https://www.ziniao.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Helium 10',
+                icon: '🚀',
+                desc: 'All-in-one Amazon tool suite: product research, keyword optimization, listing analysis, inventory management',
+                category: 'tools',
+                tags: ['Product Research', 'Keyword Tools'],
+                url: 'https://www.helium10.com/',
+                rating: 4.9
+            },
+            {
+                name: 'Jungle Scout',
+                icon: '🌴',
+                desc: 'Amazon product research tool, accurate sales estimates, discover profitable product opportunities',
+                category: 'tools',
+                tags: ['Product Research', 'Sales Estimation'],
+                url: 'https://www.junglescout.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Keepa',
+                icon: '📈',
+                desc: 'Amazon price history tracker, monitor price fluctuations, BSR changes, find best buying opportunities',
+                category: 'tools',
+                tags: ['Price Tracking', 'Historical Data'],
+                url: 'https://keepa.com/',
+                rating: 4.7
+            },
+            {
+                name: 'AMZ Tracker',
+                icon: '🎯',
+                desc: 'Keyword ranking tracker, real-time product search rank monitoring, SEO optimization',
+                category: 'tools',
+                tags: ['Rank Tracking', 'SEO'],
+                url: 'https://www.amztracker.com/',
+                rating: 4.6
+            },
+            {
+                name: 'FeedbackWhiz',
+                icon: '💬',
+                desc: 'Review management tool, automatic review requests, monitor negative reviews, analyze trends',
+                category: 'tools',
+                tags: ['Review Management', 'Automation'],
+                url: 'https://www.feedbackwhiz.com/',
+                rating: 4.7
+            },
+            {
+                name: 'Keyword Tool',
+                icon: '🔑',
+                desc: 'Keyword research tool, generate Amazon long-tail keywords, optimize listing keyword placement',
+                category: 'tools',
+                tags: ['Keyword Tool', 'SEO'],
+                url: 'https://keywordtool.io/amazon',
+                rating: 4.5
+            },
+            
+            // Intellectual Property (ip)
+            {
+                name: 'Zhushanghui IP',
+                icon: '📜',
+                desc: 'Trademark & patent services, 6 years cross-border IP experience, expert in e-commerce IP protection',
+                category: 'ip',
+                tags: ['Trademark', 'Patent'],
+                url: 'https://www.zhushanghui.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Bozhihua Consulting',
+                icon: '🏢',
+                desc: 'IP · Business & Tax · Hong Kong Company — Professional, transparent, compliant one-stop service',
+                category: 'ip',
+                tags: ['Intellectual Property', 'Business Tax'],
+                url: 'https://www.bozhihua.com/',
+                rating: 4.7
+            },
+            {
+                name: 'Wincomply',
+                icon: '✅',
+                desc: 'European local companies, VAT registration, tax filing, trademark search &备案 assistance',
+                category: 'ip',
+                tags: ['Intellectual Property', 'Tax Compliance'],
+                url: 'https://www.wincomply.com/',
+                rating: 4.6
+            },
+            {
+                name: 'USPTO',
+                icon: '🇺🇸',
+                desc: 'US Patent and Trademark Office, official trademark registration channel, self-file trademark applications',
+                category: 'ip',
+                tags: ['Trademark', 'Official Channel'],
+                url: 'https://www.uspto.gov/',
+                rating: 5.0
+            },
+            {
+                name: 'WIPO',
+                icon: '🌍',
+                desc: 'World Intellectual Property Organization, international trademark registration (Madrid system), one application covers multiple countries',
+                category: 'ip',
+                tags: ['International Trademark', 'Official'],
+                url: 'https://www.wipo.int/',
+                rating: 5.0
+            },
+            
+            // Tax Compliance (tax)
+            {
+                name: 'ACE Global',
+                icon: '💼',
+                desc: 'Licensed firm, IFA & ACCA & Japanese tax accountant team, professional tax compliance services',
+                category: 'tax',
+                tags: ['Tax Compliance', 'Licensed Firm'],
+                url: 'https://www.aceglobal.com/',
+                rating: 4.9
+            },
+            {
+                name: 'Wangchen Compliance',
+                icon: '📊',
+                desc: 'Cross-border one-stop service! Easy Amazon store opening, worry-free funds & tax compliance',
+                category: 'tax',
+                tags: ['Tax Compliance', 'One-stop'],
+                url: 'https://www.wangchen.com/',
+                rating: 4.7
+            },
+            {
+                name: 'Maicang',
+                icon: '🌾',
+                desc: 'Cross-border e-commerce no-invoice核定 one-stop solution, solve no-invoice procurement tax issues',
+                category: 'tax',
+                tags: ['Tax Compliance', 'No-Invoice'],
+                url: 'https://www.maicang.com/',
+                rating: 4.6
+            },
+            {
+                name: 'VAT Global',
+                icon: '🇪🇺',
+                desc: 'European VAT registration & filing services, covers UK, Germany, France, Italy, Spain',
+                category: 'tax',
+                tags: ['European VAT', 'Tax Filing'],
+                url: 'https://www.vatglobal.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Avalara',
+                icon: '📝',
+                desc: 'US sales tax automation solution, automatic calculation, filing, and payment for all states',
+                category: 'tax',
+                tags: ['US Sales Tax', 'Automation'],
+                url: 'https://www.avalara.com/',
+                rating: 4.7
+            },
+            
+            // Appeal Services (appeal)
+            {
+                name: 'Appeal & Review Services',
+                icon: '🔄',
+                desc: 'Full-type appeal, review, direct review 7-30 days warranty, professional account appeal service',
+                category: 'appeal',
+                tags: ['Account Appeal', 'Clearance'],
+                url: 'https://www.dnf.com/',
+                rating: 4.5
+            },
+            {
+                name: 'Amazon Seller Forums',
+                icon: '👥',
+                desc: 'Official appeal guidance forum, get appeal templates, case sharing, policy interpretation',
+                category: 'appeal',
+                tags: ['Official Channel', 'Appeal Guide'],
+                url: 'https://sellercentral.amazon.com/forums',
+                rating: 4.9
+            },
+            
+            // Marketing & Promotion (promotion)
+            {
+                name: 'Tiger Promotion',
+                icon: '🐯',
+                desc: 'Professional off-site promotion service, Facebook groups, deal sites, boost product exposure',
+                category: 'promotion',
+                tags: ['Off-site Promotion', 'Deal Sites'],
+                url: 'https://www.tigerpromotion.com/',
+                rating: 4.6
+            },
+            {
+                name: 'Snagshout',
+                icon: '📢',
+                desc: 'US deal discount platform, publish product discounts, get real buyer reviews',
+                category: 'promotion',
+                tags: ['Deal Platform', 'Reviews'],
+                url: 'https://www.snagshout.com/',
+                rating: 4.5
+            },
+            {
+                name: 'Vipon',
+                icon: '🎁',
+                desc: 'Amazon coupon platform, publish product discount coupons, drive real buyer traffic',
+                category: 'promotion',
+                tags: ['Coupons', 'Traffic'],
+                url: 'https://www.vipon.com/',
+                rating: 4.4
+            },
+            {
+                name: 'Facebook Groups',
+                icon: '📘',
+                desc: 'Facebook Amazon buyer discount groups, publish product offers, get real reviews',
+                category: 'promotion',
+                tags: ['Social Promotion', 'Groups'],
+                url: 'https://www.facebook.com/',
+                rating: 4.3
+            },
+            {
+                name: 'MyDealz',
+                icon: '🛒',
+                desc: 'German deal platform, largest discount info platform in Europe, covers Germany, France, UK',
+                category: 'promotion',
+                tags: ['European Deal', 'Discounts'],
+                url: 'https://www.mydealz.de/',
+                rating: 4.7
+            },
+            {
+                name: 'Slickdeals',
+                icon: '💰',
+                desc: 'Largest US deal community, publish discounts, get massive real traffic',
+                category: 'promotion',
+                tags: ['US Deal', 'Traffic'],
+                url: 'https://www.slickdeals.net/',
+                rating: 4.8
+            },
+            
+            // Payment Solutions (payment)
+            {
+                name: 'Payoneer',
+                icon: '💳',
+                desc: 'Cross-border payment expert, supports Amazon, eBay, Shopee and more, multi-currency accounts',
+                category: 'payment',
+                tags: ['Cross-border', 'Multi-platform'],
+                url: 'https://www.payoneer.com/',
+                rating: 4.8
+            },
+            {
+                name: 'PingPong',
+                icon: '🏓',
+                desc: 'Cross-border payment platform, low fee fast withdrawal, supports Amazon, Shopee and more',
+                category: 'payment',
+                tags: ['Cross-border', 'Low Fee'],
+                url: 'https://www.pingpongx.com/',
+                rating: 4.7
+            },
+            {
+                name: 'WorldFirst',
+                icon: '🌍',
+                desc: 'Ant Group cross-border payment platform, fast account opening, multi-currency accounts, competitive rates',
+                category: 'payment',
+                tags: ['Cross-border', 'Ant Group'],
+                url: 'https://www.worldfirst.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Airwallex',
+                icon: '☁️',
+                desc: 'Global fintech company, cross-border payment, receiving, FX one-stop service',
+                category: 'payment',
+                tags: ['Cross-border Payment', 'FX'],
+                url: 'https://www.airwallex.com/',
+                rating: 4.6
+            },
+            {
+                name: 'Stripe',
+                icon: '🌈',
+                desc: 'Global payment solution, supports independent site receiving, subscription payments, 135+ currencies',
+                category: 'payment',
+                tags: ['Independent Site', 'Subscription'],
+                url: 'https://stripe.com/',
+                rating: 4.9
+            },
+            
+            // Logistics & Warehousing (logistics)
+            {
+                name: 'DHL',
+                icon: '📦',
+                desc: 'Global logistics leader, international express, freight services, covers 220+ countries',
+                category: 'logistics',
+                tags: ['International Express', 'Global'],
+                url: 'https://www.dhl.com/',
+                rating: 4.8
+            },
+            {
+                name: 'FedEx',
+                icon: '✈️',
+                desc: 'Federal Express, international express, freight services, stable timing, strong customs clearance',
+                category: 'logistics',
+                tags: ['International Express', 'Fast'],
+                url: 'https://www.fedex.com/',
+                rating: 4.7
+            },
+            {
+                name: 'UPS',
+                icon: '🚚',
+                desc: 'United Parcel Service, global logistics solution, from small packages to large cargo',
+                category: 'logistics',
+                tags: ['International Express', 'Freight'],
+                url: 'https://www.ups.com/',
+                rating: 4.7
+            },
+            {
+                name: 'ShipBob',
+                icon: '🚢',
+                desc: 'US 3PL service provider, warehousing, packing, delivery one-stop, ideal for FBM sellers',
+                category: 'logistics',
+                tags: ['Warehouse', '3PL'],
+                url: 'https://www.shipbob.com/',
+                rating: 4.6
+            },
+            {
+                name: 'Flexport',
+                icon: '🛳️',
+                desc: 'Digital freight forwarder, sea freight, air freight, customs clearance one-stop, transparent pricing',
+                category: 'logistics',
+                tags: ['Freight Forwarder', 'Digital'],
+                url: 'https://www.flexport.com/',
+                rating: 4.5
+            },
+            
+            // Supplier Platforms (source)
+            {
+                name: 'GigaB2B',
+                icon: '🏠',
+                desc: 'Large item B2B trading platform, global home furnishing network, dropshipping available',
+                category: 'source',
+                tags: ['Supplier', 'Home Furnishing'],
+                url: 'https://www.gigab2b.com/',
+                rating: 4.7
+            },
+            {
+                name: '1688',
+                icon: '🏭',
+                desc: 'Alibaba wholesale platform, massive suppliers, factory direct, ideal for small batch procurement',
+                category: 'source',
+                tags: ['Supplier', 'Wholesale'],
+                url: 'https://www.1688.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Alibaba.com',
+                icon: '🌐',
+                desc: 'Global B2B trading platform, cross-border procurement, wholesale trading, covers 200+ countries',
+                category: 'source',
+                tags: ['B2B Platform', 'Procurement'],
+                url: 'https://www.alibaba.com/',
+                rating: 4.9
+            },
+            {
+                name: 'Global Sources',
+                icon: '🌏',
+                desc: 'Quality supplier platform, electronics, apparel, home furnishing categories complete',
+                category: 'source',
+                tags: ['B2B Platform', 'Quality Suppliers'],
+                url: 'https://www.globalsources.com/',
+                rating: 4.6
+            },
+            {
+                name: 'Made-in-China',
+                icon: '🇨🇳',
+                desc: 'China manufacturing platform, verified Chinese suppliers, factory inspection service',
+                category: 'source',
+                tags: ['B2B Platform', 'Verified Suppliers'],
+                url: 'https://www.made-in-china.com/',
+                rating: 4.5
+            },
+            
+            // Testing & Certification (cert)
+            {
+                name: 'SGS',
+                icon: '🔬',
+                desc: 'Global leading testing & certification agency, CE/FCC/CPSC certification, authoritative recognition',
+                category: 'cert',
+                tags: ['Testing', 'CE Certification'],
+                url: 'https://www.sgs.com/',
+                rating: 4.9
+            },
+            {
+                name: 'TÜV',
+                icon: '✓',
+                desc: 'German certification body, CE certification, GS certification, electronics safety certification authority',
+                category: 'cert',
+                tags: ['Testing', 'German Certification'],
+                url: 'https://www.tuv.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Intertek',
+                icon: '🧪',
+                desc: 'Intertek Group, global testing & certification services, product safety & performance testing',
+                category: 'cert',
+                tags: ['Testing', 'Product Testing'],
+                url: 'https://www.intertek.com/',
+                rating: 4.7
+            },
+            {
+                name: 'UL',
+                icon: '⚡',
+                desc: 'US safety testing laboratory, electronics safety certification, essential for North American market',
+                category: 'cert',
+                tags: ['Testing', 'UL Certification'],
+                url: 'https://www.ul.com/',
+                rating: 4.9
+            },
+            
+            // Business Insurance (insurance)
+            {
+                name: 'PICC Amazon Insurance',
+                icon: '🛡️',
+                desc: 'Amazon/Wayfair business liability insurance, starting at ¥850, meets platform requirements',
+                category: 'insurance',
+                tags: ['Business Insurance', 'Liability'],
+                url: 'https://www.picc.com/',
+                rating: 4.8
+            },
+            {
+                name: 'Ping An Insurance',
+                icon: '🛡️',
+                desc: 'Ping An cross-border liability insurance, product liability insurance, logistics insurance one-stop',
+                category: 'insurance',
+                tags: ['Business Insurance', 'Logistics'],
+                url: 'https://www.pingan.com/',
+                rating: 4.7
+            }
+        ];
+        
+        function renderProviders(category = 'all') {
+            const grid = document.getElementById('providersGrid');
+            const noResults = document.getElementById('noResults');
+            const countEl = document.getElementById('providerCount');
+            
+            const filtered = category === 'all' 
+                ? providers 
+                : providers.filter(p => p.category === category);
+            
+            if (filtered.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                countEl.textContent = 'Showing 0 providers';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            countEl.textContent = `Showing ${filtered.length} providers`;
+            
+            grid.innerHTML = filtered.map(p => `
+                <div class="provider-card" data-category="${p.category}">
+                    <div class="provider-logo">${p.icon}</div>
+                    <div class="provider-name">${p.name}</div>
+                    <div class="provider-desc">${p.desc}</div>
+                    <div class="provider-tags">
+                        <span class="provider-tag primary">${getCategoryName(p.category)}</span>
+                        ${p.tags.map(t => `<span class="provider-tag">${t}</span>`).join('')}
+                    </div>
+                    <div class="provider-footer">
+                        <div class="provider-rating">
+                            ⭐ ${p.rating}
+                        </div>
+                        <a href="${p.url}" target="_blank" class="provider-link">Visit Now</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function getCategoryName(cat) {
+            const names = {
+                'all': 'All',
+                'ip': 'Intellectual Property',
+                'tax': 'Tax Compliance',
+                'tools': 'Software Tools',
+                'appeal': 'Appeal Services',
+                'promotion': 'Marketing',
+                'payment': 'Payment',
+                'logistics': 'Logistics',
+                'source': 'Suppliers',
+                'cert': 'Certification',
+                'insurance': 'Insurance'
+            };
+            return names[cat] || cat;
+        }
+        
+        document.querySelectorAll('.category-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.category-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                renderProviders(this.dataset.category);
+            });
+        });
+        
+        renderProviders('all');
+    </script>
+</body>
+</html>
